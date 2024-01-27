@@ -300,6 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 65099434}
+  - component: {fileID: 65099437}
   - component: {fileID: 65099432}
   - component: {fileID: 65099436}
   - component: {fileID: 65099433}
@@ -325,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 65099433}
   moveSpeed: 5
+  headingDirection: {x: 0, y: 1}
 --- !u!50 &65099433
 Rigidbody2D:
   serializedVersion: 4
@@ -426,6 +428,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdb97ccc046e084092b80776be3d995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 65099435}
+  observers:
+  - {fileID: 583259502}
+--- !u!114 &65099437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65099431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c752f7421ee487a4eb091067d9ca0ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 65099432}
+  playerInteraction: {fileID: 65099436}
 --- !u!1 &285203335
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,10 +630,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 583259501}
+  - component: {fileID: 583259502}
+  - component: {fileID: 583259498}
   - component: {fileID: 583259500}
   - component: {fileID: 583259499}
-  - component: {fileID: 583259498}
-  - component: {fileID: 583259502}
   m_Layer: 0
   m_Name: NPCharacter
   m_TagString: Untagged
@@ -738,6 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e64949127e5ec49a5913317e124e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 583259498}
 --- !u!1 &1253840022
 GameObject:
   m_ObjectHideFlags: 0

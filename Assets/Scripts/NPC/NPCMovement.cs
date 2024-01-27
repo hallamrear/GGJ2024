@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMovement : MonoBehaviour
+public class NPCMovement : MovementBase
 {
-    [Header ("Physics")]
-    public Rigidbody2D rigidBody;
+    //[Header ("Physics")]
+    //public Rigidbody2D rigidBody;
 
-    [Header ("Move stats")]
-    public float moveSpeed = 5;
-    public Vector2 headingDirection = new Vector2(0, 1); 
+    //[Header ("Move stats")]
+    //public float moveSpeed = 5;
+    //public Vector2 headingDirection = new Vector2(0, 1); 
+
+    [Header("NPC Specific Movement")]
     public float directionTime = 100;
 
-    private Vector2 moveDirection = new Vector2(0, 0);
+    //private Vector2 moveDirection = new Vector2(0, 0);
     private float currentTime = 0;
+    private bool IsStopped = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,15 @@ public class NPCMovement : MonoBehaviour
 
     private void Move()
     {
-        rigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        if(!IsStopped)
+        {
+            rigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        }
+    }
+
+    public void ToggleMovement()
+    {
+        IsStopped = !IsStopped;
+        Debug.Log("stop moving");
     }
 }

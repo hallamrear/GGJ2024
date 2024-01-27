@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBase : EntityBase
+public class EntityBase : MonoBehaviour
 {
-    public PlayerController playerController; 
+
 }
