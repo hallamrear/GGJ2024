@@ -19,9 +19,13 @@ public class Jokebook_PageManager : MonoBehaviour
     
     public List<GameObject> m_Pages;
 
+    private bool m_CanChangePages;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_CanChangePages = true;
+
         Transform[] pageListTransforms = m_PageListGameObject.GetComponentsInChildren<RectTransform>();
         foreach (var pageTransform in pageListTransforms)
         {
@@ -68,6 +72,8 @@ public class Jokebook_PageManager : MonoBehaviour
 
     public void IncrementPage()
     {
+        HideCurrentPageContent();
+
         m_CurrentPageIndex += 2;
 
         if(m_CurrentPageIndex > MaxPageCount - 2)
@@ -81,23 +87,45 @@ public class Jokebook_PageManager : MonoBehaviour
 
     public void DecrementPage()
     {
-        m_CurrentPageIndex -= 2;
+        if (m_CanChangePages)
+        {
+            HideCurrentPageContent();
 
-        if (m_CurrentPageIndex < 0)
-            m_CurrentPageIndex = 0;
+            m_CurrentPageIndex -= 2;
 
-        Debug.Log(m_CurrentPageIndex.ToString());
-        DisplayCurrentPageContent();
+            if (m_CurrentPageIndex < 0)
+                m_CurrentPageIndex = 0;
+
+            DisplayCurrentPageContent();
+        }
+    }
+
+    private void HideCurrentPageContent()
+    {
+        if (m_CanChangePages)
+        {
+            m_LeftPanelGameObject.transform.GetChild(0).gameObject.SetActive(false);
+            m_LeftPanelGameObject.transform.GetChild(0).SetParent(m_PageListGameObject.transform);
+            m_RightPanelGameObject.transform.GetChild(0).gameObject.SetActive(false);
+            m_RightPanelGameObject.transform.GetChild(0).SetParent(m_PageListGameObject.transform);
+        }
     }
 
     private void DisplayCurrentPageContent()
     {
-        m_LeftPanelGameObject.GetComponent<Image>().color = m_Pages[m_CurrentPageIndex].GetComponent<Image>().color;
-        m_LeftPanelGameObject.GetComponent<Jokebook_Page>()?.m_TitleText.SetText(m_Pages[m_CurrentPageIndex].GetComponent<Jokebook_Page>().DataObject.PageTitle);
-        m_LeftPanelGameObject.GetComponent<Jokebook_Page>()?.m_MainText.SetText(m_Pages[m_CurrentPageIndex].GetComponent<Jokebook_Page>().DataObject.PageData);
-        
-        m_RightPanelGameObject.GetComponent<Image>().color = m_Pages[m_CurrentPageIndex + 1].GetComponent<Image>().color;
-        m_RightPanelGameObject.GetComponent<Jokebook_Page>()?.m_TitleText.SetText(m_Pages[m_CurrentPageIndex].GetComponent<Jokebook_Page>().DataObject.PageTitle);
-        m_RightPanelGameObject.GetComponent<Jokebook_Page>()?.m_MainText.SetText(m_Pages[m_CurrentPageIndex + 1].GetComponent<Jokebook_Page>().DataObject.PageData);
+        m_Pages[m_CurrentPageIndex].transform.SetParent(m_LeftPanelGameObject.transform);
+        m_Pages[m_CurrentPageIndex].gameObject.SetActive(true);
+        m_Pages[m_CurrentPageIndex + 1].transform.SetParent(m_RightPanelGameObject.transform);
+        m_Pages[m_CurrentPageIndex + 1].gameObject.SetActive(true);
+
+        //m_LeftPanelGameObject.GetComponent<Jokebook_TextPage>()?.m_TitleText.SetText(m_Pages[m_CurrentPageIndex].GetComponent<Jokebook_TextPage>().DataObject.PageTitle);
+        //m_LeftPanelGameObject.GetComponent<Jokebook_TextPage>()?.m_MainText.SetText(m_Pages[m_CurrentPageIndex].GetComponent<Jokebook_TextPage>().DataObject.PageData);
+        //m_RightPanelGameObject.GetComponent<Jokebook_TextPage>()?.m_TitleText.SetText(m_Pages[m_CurrentPageIndex].GetComponent<Jokebook_TextPage>().DataObject.PageTitle);
+        //m_RightPanelGameObject.GetComponent<Jokebook_TextPage>()?.m_MainText.SetText(m_Pages[m_CurrentPageIndex + 1].GetComponent<Jokebook_TextPage>().DataObject.PageData);
+    }
+
+    public void CanChangePages(bool state)
+    {
+        m_CanChangePages = state;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JokeBook_Controller : MonoBehaviour
+public class Jokebook_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
 

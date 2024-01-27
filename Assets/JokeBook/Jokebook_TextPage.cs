@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jokebook_Page : MonoBehaviour
+public class Jokebook_TextPage : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -15,18 +15,12 @@ public class Jokebook_Page : MonoBehaviour
     public TMPro.TextMeshProUGUI m_TitleText;
     public TMPro.TextMeshProUGUI m_MainText;
 
-    void Start()
+    public void Start()
     {
         if (DataObject)
         {
             m_TitleText.text = DataObject.PageTitle;
             m_MainText.text = DataObject.PageData;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

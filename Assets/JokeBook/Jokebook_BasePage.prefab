@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8395694642630755620}
   - component: {fileID: 2416936070998637653}
-  - component: {fileID: 8872623632139968330}
-  - component: {fileID: 8679996747254312351}
   - component: {fileID: 6190720345930525508}
+  - component: {fileID: 5518859489476369239}
   m_Layer: 5
-  m_Name: Jokebook_EmptyPage
+  m_Name: Jokebook_BasePage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,51 +48,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956903418786185971}
   m_CullTransparentMesh: 1
---- !u!114 &8872623632139968330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956903418786185971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.004494493, b: 0.004494493, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &8679996747254312351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956903418786185971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa3989b17886ae449632e171a44efc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DataObject: {fileID: 11400000, guid: 083c9971c883fca4187113b75c9711bd, type: 2}
-  m_TitleText: {fileID: 6271025035818658225}
-  m_MainText: {fileID: 4813566648972120332}
 --- !u!114 &6190720345930525508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +74,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5518859489476369239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956903418786185971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351d30894e8702845acc422d93244184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DataObject: {fileID: 11400000, guid: 146f54a7bf245a44fa081d1e9dcb56ef, type: 2}
+  m_TitleText: {fileID: 6271025035818658225}
+  m_MainText: {fileID: 4813566648972120332}
+  m_JokeList: []
 --- !u!1 &4382455507897065154
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +182,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.85
+  m_fontSize: 23.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -324,7 +294,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -443,7 +413,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.85
+  m_fontSize: 23.8
   m_fontSizeBase: 10.4
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -555,7 +525,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -580,5 +550,5 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
-  m_FlexibleHeight: 7
+  m_FlexibleHeight: 8
   m_LayoutPriority: 1
