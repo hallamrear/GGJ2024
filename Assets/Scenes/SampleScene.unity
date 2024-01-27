@@ -428,9 +428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdb97ccc046e084092b80776be3d995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider2D: {fileID: 65099435}
   observers:
   - {fileID: 583259502}
+  boxCollider2D: {fileID: 65099435}
 --- !u!114 &65099437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +632,7 @@ GameObject:
   - component: {fileID: 583259501}
   - component: {fileID: 583259502}
   - component: {fileID: 583259498}
+  - component: {fileID: 583259503}
   - component: {fileID: 583259500}
   - component: {fileID: 583259499}
   m_Layer: 0
@@ -657,6 +658,8 @@ MonoBehaviour:
   moveSpeed: 2
   headingDirection: {x: 0, y: 1}
   directionTime: 100
+  movementOptions:
+  - {fileID: 583259503}
 --- !u!50 &583259499
 Rigidbody2D:
   serializedVersion: 4
@@ -758,6 +761,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 583259498}
+--- !u!114 &583259503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583259497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ee1924d3132d14dbee31b73b2c5d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  PacingPoints:
+  - {x: 3, y: 3}
+  - {x: 5, y: 5}
+  - {x: 8, y: 8}
+  PositionRangeSqr: 100
 --- !u!1 &1253840022
 GameObject:
   m_ObjectHideFlags: 0
