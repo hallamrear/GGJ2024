@@ -13,15 +13,15 @@
             <Node OptionToEnter="But you said Hello first?" Text="No I didn't"/>
         </Node>
     </Node>
-    <Node OptionToEnter="Sup" Text="Not much whatsup with you">
-        <Node OptionToEnter="Well I was wondering if you had a joke to tell me?" Text="NO JOKES FOR FREE"/>
-        <Node OptionToEnter="What do you like?" Text="I like tacos">
-            <Node OptionToEnter="What are you TACOBOUT" Text="HAAHAHAHAHAHAHAHHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHHAHAHAHAHHHHAAAAAHAHHAHAHA">
-                <Node OptionToEnter="It wasn't that funny, you must be TACOING THE PISS" Text="That wasn't funny and you've ruined my mood"/>
+    <Node OptionToEnter="Sup" Text="Not much whatsup with you" OpinionModifier="0.1">
+        <Node OptionToEnter="Well I was wondering if you had a joke to tell me?" Text="NO JOKES FOR FREE" OpinionModifier="-0.1"/>
+        <Node OptionToEnter="What do you like?" Text="I like tacos" OpinionModifier="0.25">
+            <Node OptionToEnter="What are you TACOBOUT" Text="HAAHAHAHAHAHAHAHHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHHAHAHAHAHHHHAAAAAHAHHAHAHA"  OpinionModifier="0.4">
+                <Node OptionToEnter="It wasn't that funny, you must be TACOING THE PISS" Text="That wasn't funny and you've ruined my mood" OpinionModifier="-0.9"/>
                 <Node OptionToEnter="HAHAHAHAHAHHA" Text="HAHAHAHHAHAHAHHAA">
                     <Node OptionToEnter="Do you have a joke to tell me?" Text="YES! Why did the chicken cross the road?!">
-                        <Node OptionToEnter="To get to the other side?" Text="WISE GUY ARE YA?! GO AWAY"/>
-                        <Node OptionToEnter="I don't know, why did the chicken cross the road?" Text="TO GET TO THE OTHER SIDE!"/>
+                        <Node OptionToEnter="To get to the other side?" Text="WISE GUY ARE YA?! GO AWAY" OpinionModifier="-0.5"/>
+                        <Node OptionToEnter="I don't know, why did the chicken cross the road?" Text="TO GET TO THE OTHER SIDE!" OpinionModifier="0.8"/>
                     </Node>
                     <Node OptionToEnter="HAHAHAHAHAHAHA" Text="It wasn't that funny."/>
                 </Node>
