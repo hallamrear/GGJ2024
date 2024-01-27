@@ -5,11 +5,10 @@ using UnityEngine;
 /// <summary>
 /// Handles Player interaction
 /// </summary>
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteraction : Subject
 {
     public BoxCollider2D boxCollider2D;
 
-    public List<Observer> observers;
     public bool IsInteracting
     {
         get { return isInInteraction; }
@@ -66,19 +65,5 @@ public class PlayerInteraction : MonoBehaviour
         //Debug.Log("collision exit");
         IsInRange = false;
         OnNotifyObservers(null, leftInteractRange);
-    }
-
-
-    /// <summary>
-    /// Notify the observers that an event occured
-    /// </summary>
-    /// <param name="player"></param>
-    /// <param name="e"></param>
-    private void OnNotifyObservers(EntityBase entity, NotifyEvent e)
-    {
-        foreach(Observer observer in observers)
-        {
-            observer.OnNotify(entity, e);
-        }
     }
 }
