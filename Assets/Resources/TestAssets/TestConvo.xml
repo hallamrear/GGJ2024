@@ -1,0 +1,41 @@
+<Node Text="Hello">
+    <Node OptionToEnter="Hello" Text="DON'T SAY HI!">
+        <Node OptionToEnter="Why not?" Text="HI IS TOO FORMAL">
+            <Node OptionToEnter="Well sorry I was too casual" Text="FUCK YOU">
+                <Node OptionToEnter="What" Text="Bye"/>
+                <Node OptionToEnter="Fuck you!" Text="Fuck you!">
+                    <Node OptionToEnter="Fuck you!" Text="Fuck you!"/>
+                    <Node OptionToEnter="Fuck you!" Text="Fuck you!"/>
+                    <Node OptionToEnter="Fuck you!" Text="Fuck you!"/>
+                </Node>
+            </Node>
+            <Node OptionToEnter="Oh, what would you prefer?" Text="Sup"/>
+            <Node OptionToEnter="But you said Hello first?" Text="No I didn't"/>
+        </Node>
+    </Node>
+    <Node OptionToEnter="Sup" Text="Not much whatsup with you">
+        <Node OptionToEnter="Well I was wondering if you had a joke to tell me?" Text="NO JOKES FOR FREE"/>
+        <Node OptionToEnter="What do you like?" Text="I like tacos">
+            <Node OptionToEnter="What are you TACOBOUT" Text="HAAHAHAHAHAHAHAHHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHHAHAHAHAHHHHAAAAAHAHHAHAHA">
+                <Node OptionToEnter="It wasn't that funny, you must be TACOING THE PISS" Text="That wasn't funny and you've ruined my mood"/>
+                <Node OptionToEnter="HAHAHAHAHAHHA" Text="HAHAHAHHAHAHAHHAA">
+                    <Node OptionToEnter="Do you have a joke to tell me?" Text="YES! Why did the chicken cross the road?!">
+                        <Node OptionToEnter="To get to the other side?" Text="WISE GUY ARE YA?! GO AWAY"/>
+                        <Node OptionToEnter="I don't know, why did the chicken cross the road?" Text="TO GET TO THE OTHER SIDE!"/>
+                    </Node>
+                    <Node OptionToEnter="HAHAHAHAHAHAHA" Text="It wasn't that funny."/>
+                </Node>
+            </Node>
+            <Node OptionToEnter="Tacos, I don't like those" Text="Well I guess we can't be friends"/>
+            <Node OptionToEnter="Tacos, MORE LIKE TAKE HOMES" Text="That was a bad joke"/>
+        </Node>
+
+    </Node>
+    <Node OptionToEnter="Hey Good Lookin'" Text="DONT FLIRT WITHE ME WHORE">
+        <Node OptionToEnter="That's very rude" Text="You're very rude! Trying to seduce me when I'm a good christian clown">
+            <Node OptionToEnter="I wasn't trying to seduce you I was just saying I like your makeup and your red nose" Text="RED NOSE?!?! DON'T TALK ABOUT MY NOSE"/>
+            <Node OptionToEnter="Yes I want some of that clown cock, what of it?!" Text="LEAVE ME ALONE"/>
+        </Node>
+        <Node OptionToEnter="Sorry I upset you, I just love you!" Text="Well I don't love you"/>
+    </Node>
+</Node>

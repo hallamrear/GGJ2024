@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Xml.Linq;
 
 public enum Clowns
 {
@@ -91,6 +92,8 @@ public class ClownDialogueManager : MonoBehaviour
     /// </summary>
     public GameObject ResponsesHolder;
 
+    private ConversationNode conversation;
+
 
     ClownInfo cInfo;
     LocationBackgrounds locationBackgrounds;
@@ -121,7 +124,8 @@ public class ClownDialogueManager : MonoBehaviour
         {
             case Clowns.TEST:
                 ClownImage.sprite = cInfo.clownPhoto;
-                ClownDialogue.SetText(cInfo.ClownIntro);
+                conversation = new ConversationNode(XElement.Load(@"Assets\Resources\TestAssets\TestConvo.xml"));
+                ClownDialogue.SetText(conversation.Text);
                 break;
             default:
                 break;
@@ -159,9 +163,22 @@ public class ClownDialogueManager : MonoBehaviour
 
     private void PopulateResponses()
     {
-        ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Option 1");
-        ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Option 2");
-        ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>().SetText("Option 3");
+        ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Back To Start");
+        ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Back To Start");
+        ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>().SetText("Back To Start");
+
+        if (conversation.Options.Count > 0)
+        {
+            ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(conversation.Options[0]);
+        }
+        if (conversation.Options.Count > 1)
+        {
+            ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(conversation.Options[1]);
+        }
+        if (conversation.Options.Count > 2)
+        {
+            ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>().SetText(conversation.Options[2]);
+        }
     }
 
     public void IssueResponse(int choice)
@@ -172,6 +189,7 @@ public class ClownDialogueManager : MonoBehaviour
 
     private void ProcessNextDialogue(int choice)
     {
-        ClownDialogue.SetText($"Oh you replied with {choice}");
+        conversation = conversation.ConversationChoice(choice);
+        ClownDialogue.SetText(conversation.Text);
     }
 }
