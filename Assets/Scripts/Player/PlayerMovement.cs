@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+/// <summary>
+/// Handles Player movement
+/// </summary>
+public class PlayerMovement : MovementBase
 {
-    public float moveSpeed = 0;
-    public Rigidbody2D rigidBody;
-    private Vector2 moveDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +16,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Inputs
-        ProcessInputs();
     }
 
     /// <summary>
@@ -29,14 +27,18 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    void ProcessInputs()
+    /// <summary>
+    /// Process movement based on given xy axis vector
+    /// </summary>
+    /// <param name="moveVec"></param>
+    public void ProcessMovement(Vector2 moveVec)
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        moveDirection = moveVec.normalized;
     }
 
+    /// <summary>
+    /// Move the player via rigid body phyics
+    /// </summary>
     private void Move()
     {
         rigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
