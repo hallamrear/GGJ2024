@@ -1,11 +1,134 @@
 <Node Text="So you think you can be a clown, a joker, a goof meister?!">
-    <Node OptionToEnter="Yeah, everyone's always laughing at me!" Text="You don't need to shout it, I can see that just looking at you!" OpinionModifier="0.01">
-    
+    <Node OptionToEnter="Yeah, everyone's always laughing at me!" Text="You don't need to shout it, I can see that just looking at you! Well lets do a quiz and work it out, get 5 right and I'll tell you my world famous joke!" OpinionModifier="0.01">
+        <Node OptionToEnter="Lets go then!" Text="What was the name of the first panto clown to wear white face make-up instead of a mask?">
+            <Node OptionToEnter="Gimli" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Ghandi" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Grimaldi" Text="That's right! What was the name of the first circus clown?" OpinionModifier="0.2">
+                <Node OptionToEnter="Mr Merryman" Text="YES! Now onto a harder one: Infamous serial killer John Wayne Gacy was a clown, what was his clown called?" OpinionModifier="0.2">
+                    <Node OptionToEnter="Pingo" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Poggy" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Pogo" Text="Correctamundo, if you're a real clown you'll know this one: The worlds oldest clown society clown international. When was it founded?" OpinionModifier="0.2">
+                        <Node OptionToEnter="1875" Text="WRONG" OpinionModifier="-1"/>
+                        <Node OptionToEnter="1947" Text="Good job! Are you sure you're not cheating?! Last one then, what is the fear of clowns called?" OpinionModifier="0.2">
+                            <Node OptionToEnter="Clownophobia" Text="WRONG" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Coulrophobia" Text="WOW You did it, I guess you can get the joke then!" OpinionModifier="0.2" GiveReward="Why did the clown go to the doctor? Because he was feeling a little funny!"/>
+                            <Node OptionToEnter="Cuolrophobia" Text="WRONG" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="1963" Text="WRONG" OpinionModifier="-1"/>
+                    </Node>
+                </Node>
+                <Node OptionToEnter="Mr Funnyman" Text="WRONG" OpinionModifier="-1"/>
+                <Node OptionToEnter="Jingles" Text="WRONG" OpinionModifier="-1"/>
+            </Node>
+        </Node>
+        <Node OptionToEnter="Lets go then!" Text="What was the name of the first panto clown to wear white face make-up instead of a mask?">
+            <Node OptionToEnter="Gimli" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Ghandi" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Grimaldi" Text="That's right! What was the name of the first circus clown?" OpinionModifier="0.2">
+                <Node OptionToEnter="Mr Merryman" Text="YES! Now onto a harder one: Infamous serial killer John Wayne Gacy was a clown, what was his clown called?" OpinionModifier="0.2">
+                    <Node OptionToEnter="Pingo" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Poggy" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Pogo" Text="Correctamundo, if you're a real clown you'll know this one: The worlds oldest clown society clown international. When was it founded?" OpinionModifier="0.2">
+                        <Node OptionToEnter="1875" Text="WRONG" OpinionModifier="-1"/>
+                        <Node OptionToEnter="1947" Text="Good job! Are you sure you're not cheating?! Last one then, what is the fear of clowns called?" OpinionModifier="0.2">
+                            <Node OptionToEnter="Clownophobia" Text="WRONG" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Coulrophobia" Text="WOW You did it, I guess you can get the joke then!" OpinionModifier="0.2" GiveReward="Why did the clown go to the doctor? Because he was feeling a little funny!"/>
+                            <Node OptionToEnter="Cuolrophobia" Text="WRONG" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="1963" Text="WRONG" OpinionModifier="-1"/>
+                    </Node>
+                </Node>
+                <Node OptionToEnter="Mr Funnyman" Text="WRONG" OpinionModifier="-1"/>
+                <Node OptionToEnter="Jingles" Text="WRONG" OpinionModifier="-1"/>
+            </Node>
+        </Node>
     </Node>
-    <Node OptionToEnter="Do I look like a funny guy to you?" Text="Not one bit funny." OpinionModifier="-0.01">
-    
+    <Node OptionToEnter="Do I look like a funny guy to you?" Text="Not one bit funny. Well lets do a quiz and work it out, get 5 right and I'll tell you my world famous joke!" OpinionModifier="-0.01">
+        <Node OptionToEnter="Lets go then!" Text="What was the name of the first panto clown to wear white face make-up instead of a mask?">
+            <Node OptionToEnter="Gimli" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Ghandi" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Grimaldi" Text="That's right! What was the name of the first circus clown?" OpinionModifier="0.2">
+                <Node OptionToEnter="Mr Merryman" Text="YES! Now onto a harder one: Infamous serial killer John Wayne Gacy was a clown, what was his clown called?" OpinionModifier="0.2">
+                    <Node OptionToEnter="Pingo" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Poggy" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Pogo" Text="Correctamundo, if you're a real clown you'll know this one: The worlds oldest clown society clown international. When was it founded?" OpinionModifier="0.2">
+                        <Node OptionToEnter="1875" Text="WRONG" OpinionModifier="-1"/>
+                        <Node OptionToEnter="1947" Text="Good job! Are you sure you're not cheating?! Last one then, what is the fear of clowns called?" OpinionModifier="0.2">
+                            <Node OptionToEnter="Clownophobia" Text="WRONG" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Coulrophobia" Text="WOW You did it, I guess you can get the joke then!" OpinionModifier="0.2" GiveReward="Why did the clown go to the doctor? Because he was feeling a little funny!"/>
+                            <Node OptionToEnter="Cuolrophobia" Text="WRONG" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="1963" Text="WRONG" OpinionModifier="-1"/>
+                    </Node>
+                </Node>
+                <Node OptionToEnter="Mr Funnyman" Text="WRONG" OpinionModifier="-1"/>
+                <Node OptionToEnter="Jingles" Text="WRONG" OpinionModifier="-1"/>
+            </Node>
+        </Node>
+        <Node OptionToEnter="Lets go then!" Text="What was the name of the first panto clown to wear white face make-up instead of a mask?">
+            <Node OptionToEnter="Gimli" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Ghandi" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Grimaldi" Text="That's right! What was the name of the first circus clown?" OpinionModifier="0.2">
+                <Node OptionToEnter="Mr Merryman" Text="YES! Now onto a harder one: Infamous serial killer John Wayne Gacy was a clown, what was his clown called?" OpinionModifier="0.2">
+                    <Node OptionToEnter="Pingo" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Poggy" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Pogo" Text="Correctamundo, if you're a real clown you'll know this one: The worlds oldest clown society clown international. When was it founded?" OpinionModifier="0.2">
+                        <Node OptionToEnter="1875" Text="WRONG" OpinionModifier="-1"/>
+                        <Node OptionToEnter="1947" Text="Good job! Are you sure you're not cheating?! Last one then, what is the fear of clowns called?" OpinionModifier="0.2">
+                            <Node OptionToEnter="Clownophobia" Text="WRONG" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Coulrophobia" Text="WOW You did it, I guess you can get the joke then!" OpinionModifier="0.2" GiveReward="Why did the clown go to the doctor? Because he was feeling a little funny!"/>
+                            <Node OptionToEnter="Cuolrophobia" Text="WRONG" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="1963" Text="WRONG" OpinionModifier="-1"/>
+                    </Node>
+                </Node>
+                <Node OptionToEnter="Mr Funnyman" Text="WRONG" OpinionModifier="-1"/>
+                <Node OptionToEnter="Jingles" Text="WRONG" OpinionModifier="-1"/>
+            </Node>
+        </Node>
     </Node>
-    <Node OptionToEnter="I'm a bit of a jester myself" Text="I'd say you're more like a fool than a Jester." OptionToEnter="0.01">
-    
+    <Node OptionToEnter="I'm a bit of a jester myself" Text="I'd say you're more like a fool than a Jester. Well lets do a quiz and work it out, get 5 right and I'll tell you my world famous joke!" OpinionModifier="0.01">
+        <Node OptionToEnter="Lets go then!" Text="What was the name of the first panto clown to wear white face make-up instead of a mask?">
+            <Node OptionToEnter="Gimli" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Ghandi" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Grimaldi" Text="That's right! What was the name of the first circus clown?" OpinionModifier="0.2">
+                <Node OptionToEnter="Mr Merryman" Text="YES! Now onto a harder one: Infamous serial killer John Wayne Gacy was a clown, what was his clown called?" OpinionModifier="0.2">
+                    <Node OptionToEnter="Pingo" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Poggy" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Pogo" Text="Correctamundo, if you're a real clown you'll know this one: The worlds oldest clown society clown international. When was it founded?" OpinionModifier="0.2">
+                        <Node OptionToEnter="1875" Text="WRONG" OpinionModifier="-1"/>
+                        <Node OptionToEnter="1947" Text="Good job! Are you sure you're not cheating?! Last one then, what is the fear of clowns called?" OpinionModifier="0.2">
+                            <Node OptionToEnter="Clownophobia" Text="WRONG" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Coulrophobia" Text="WOW You did it, I guess you can get the joke then!" OpinionModifier="0.2" GiveReward="Why did the clown go to the doctor? Because he was feeling a little funny!"/>
+                            <Node OptionToEnter="Cuolrophobia" Text="WRONG" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="1963" Text="WRONG" OpinionModifier="-1"/>
+                    </Node>
+                </Node>
+                <Node OptionToEnter="Mr Funnyman" Text="WRONG" OpinionModifier="-1"/>
+                <Node OptionToEnter="Jingles" Text="WRONG" OpinionModifier="-1"/>
+            </Node>
+        </Node>
+        <Node OptionToEnter="Lets go then!" Text="What was the name of the first panto clown to wear white face make-up instead of a mask?">
+            <Node OptionToEnter="Gimli" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Ghandi" Text="WRONG" OpinionModifier="-1"/>
+            <Node OptionToEnter="Grimaldi" Text="That's right! What was the name of the first circus clown?" OpinionModifier="0.2">
+                <Node OptionToEnter="Mr Merryman" Text="YES! Now onto a harder one: Infamous serial killer John Wayne Gacy was a clown, what was his clown called?" OpinionModifier="0.2">
+                    <Node OptionToEnter="Pingo" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Poggy" Text="WRONG" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Pogo" Text="Correctamundo, if you're a real clown you'll know this one: The worlds oldest clown society clown international. When was it founded?" OpinionModifier="0.2">
+                        <Node OptionToEnter="1875" Text="WRONG" OpinionModifier="-1"/>
+                        <Node OptionToEnter="1947" Text="Good job! Are you sure you're not cheating?! Last one then, what is the fear of clowns called?" OpinionModifier="0.2">
+                            <Node OptionToEnter="Clownophobia" Text="WRONG" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Coulrophobia" Text="WOW You did it, I guess you can get the joke then!" OpinionModifier="0.2" GiveReward="Why did the clown go to the doctor? Because he was feeling a little funny!"/>
+                            <Node OptionToEnter="Cuolrophobia" Text="WRONG" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="1963" Text="WRONG" OpinionModifier="-1"/>
+                    </Node>
+                </Node>
+                <Node OptionToEnter="Mr Funnyman" Text="WRONG" OpinionModifier="-1"/>
+                <Node OptionToEnter="Jingles" Text="WRONG" OpinionModifier="-1"/>
+            </Node>
+        </Node>
     </Node>
 </Node>

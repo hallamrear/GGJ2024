@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b0ea15f2e1fe44956a59563a10417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClownType: 0
+  ClownType: 2
   OpinionOfPlayer: 0
 --- !u!114 &583259504
 MonoBehaviour:

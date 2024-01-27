@@ -132,6 +132,13 @@ public class ClownDialogueManager : MonoBehaviour
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\TestAssets\TestConvo.xml"));
                 ClownDialogue.SetText(conversation.Text);
                 break;
+            case Clowns.JohnClown:
+                break;
+            case Clowns.QuestionClown:
+                ClownImage.sprite = resources.BallClownPhoto;
+                conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\QuestionClown.xml"));
+                ClownDialogue.SetText(conversation.Text);
+                break;
             default:
                 break;
         }
@@ -248,9 +255,15 @@ public class ClownDialogueManager : MonoBehaviour
     {
         bool notCompleted = true;
         int visibleCharacters = 0;
+        float rotationPerLetter = 360.0f / (float)text.Length;
 
         while (notCompleted)
         {
+            if (activeConvoInfo.ClownType == Clowns.QuestionClown)
+            {
+                ClownImage.gameObject.GetComponent<Transform>().Rotate(new Vector3(0, 0, rotationPerLetter));
+            }
+
             visibleCharacters++;
             tmp.maxVisibleCharacters = visibleCharacters;
             if (visibleCharacters >= text.Length)
