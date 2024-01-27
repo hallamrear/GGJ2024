@@ -7,18 +7,33 @@ public enum Clowns
     TEST
 }
 
+public enum Locations
+{ 
+    BIGTOP
+}
+
 public class ClownInfo
 {
-    public Sprite clownBackground;
     public Sprite clownPhoto;
     public string ClownIntro;
 
-    public ClownInfo()
+    public ClownInfo(string clownName, string introText)
     {
-        clownBackground = Resources.Load<Sprite>(@"TestAssets\Background_TestImage");
-        clownPhoto = Resources.Load<Sprite>(@"TestAssets\Buggy_TestImage");
-        ClownIntro = "Heyo itsa me buggy";
+        clownPhoto = Resources.Load<Sprite>(@$"TestAssets\{clownName}_TestImage");
+        ClownIntro = introText;
     }
+}
+
+public class LocationBackgrounds
+{
+    public Sprite BigTopBackground;
+
+    public LocationBackgrounds()
+    {
+        BigTopBackground = Resources.Load<Sprite>(@$"TestAssets\Background_TestImage");
+
+    }
+
 }
 
 
@@ -66,16 +81,28 @@ public class ClownDialogueManager : MonoBehaviour
     /// </summary>
     public Button ResponseButtonThree;
 
+    /// <summary>
+    /// Reference to the object holding all of the other clowns dialogue.
+    /// </summary>
+    public GameObject DialogueHolder;
+
+    /// <summary>
+    /// Reference to the object holding all of the players available responses.
+    /// </summary>
+    public GameObject ResponsesHolder;
+
 
     ClownInfo cInfo;
+    LocationBackgrounds locationBackgrounds;
 
     // Start is called before the first frame update
     private void Start()
     {
         clownDialogueManager = this;
-        cInfo = new ClownInfo();
+        cInfo = new ClownInfo("Buggy", "It'sa Me Buggyman");
+        locationBackgrounds = new LocationBackgrounds();
 
-        BeginDialogue(Clowns.TEST);
+        BeginDialogue(Clowns.TEST, Locations.BIGTOP);
     }
 
     // Update is called once per frame
@@ -84,22 +111,67 @@ public class ClownDialogueManager : MonoBehaviour
         
     }
 
-
     /// <summary>
     /// Begins the dialogue interaction for the clown and loads all relevant images.
     /// </summary>
     /// <param name="clownToLoad"></param>
-    public void BeginDialogue(Clowns clownToLoad)
+    public void BeginDialogue(Clowns clownToLoad, Locations location)
     {
         switch (clownToLoad)
         {
             case Clowns.TEST:
-                BackgroundImage.sprite = cInfo.clownBackground;
                 ClownImage.sprite = cInfo.clownPhoto;
                 ClownDialogue.SetText(cInfo.ClownIntro);
                 break;
             default:
                 break;
         }
+
+        switch (location)
+        {
+            case Locations.BIGTOP:
+                BackgroundImage.sprite = locationBackgrounds.BigTopBackground;
+                break;
+            default:
+                break;
+        }
+
+        HidePlayerOptions();
+    }
+
+    private void HidePlayerOptions()
+    {
+        DialogueHolder.SetActive(true);
+        ResponsesHolder.SetActive(false);
+    }
+
+    private void ShowPlayerOptions()
+    {
+        DialogueHolder.SetActive(false);
+        ResponsesHolder.SetActive(true);
+    }
+
+    public void Reply()
+    {
+        ShowPlayerOptions();
+        PopulateResponses();
+    }
+
+    private void PopulateResponses()
+    {
+        ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Option 1");
+        ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Option 2");
+        ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>().SetText("Option 3");
+    }
+
+    public void IssueResponse(int choice)
+    {
+        HidePlayerOptions();
+        ProcessNextDialogue(choice);
+    }
+
+    private void ProcessNextDialogue(int choice)
+    {
+        ClownDialogue.SetText($"Oh you replied with {choice}");
     }
 }
