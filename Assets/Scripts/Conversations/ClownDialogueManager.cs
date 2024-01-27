@@ -1,8 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
+public enum Clowns
+{
+    TEST
+}
+
+public class ClownInfo
+{
+    public Sprite clownBackground;
+    public Sprite clownPhoto;
+    public string ClownIntro;
+
+    public ClownInfo()
+    {
+        clownBackground = Resources.Load<Sprite>(@"TestAssets\Background_TestImage");
+        clownPhoto = Resources.Load<Sprite>(@"TestAssets\Buggy_TestImage");
+        ClownIntro = "Heyo itsa me buggy";
+    }
+}
+
 
 public class ClownDialogueManager : MonoBehaviour
 {
@@ -49,10 +67,15 @@ public class ClownDialogueManager : MonoBehaviour
     public Button ResponseButtonThree;
 
 
+    ClownInfo cInfo;
+
     // Start is called before the first frame update
     private void Start()
     {
         clownDialogueManager = this;
+        cInfo = new ClownInfo();
+
+        BeginDialogue(Clowns.TEST);
     }
 
     // Update is called once per frame
@@ -66,8 +89,17 @@ public class ClownDialogueManager : MonoBehaviour
     /// Begins the dialogue interaction for the clown and loads all relevant images.
     /// </summary>
     /// <param name="clownToLoad"></param>
-    public void BeginDialogue(string clownToLoad)
+    public void BeginDialogue(Clowns clownToLoad)
     {
-
+        switch (clownToLoad)
+        {
+            case Clowns.TEST:
+                BackgroundImage.sprite = cInfo.clownBackground;
+                ClownImage.sprite = cInfo.clownPhoto;
+                ClownDialogue.SetText(cInfo.ClownIntro);
+                break;
+            default:
+                break;
+        }
     }
 }
