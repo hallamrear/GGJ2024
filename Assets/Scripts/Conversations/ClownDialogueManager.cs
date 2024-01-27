@@ -92,6 +92,9 @@ public class ClownDialogueManager : MonoBehaviour
     /// </summary>
     public GameObject ResponsesHolder;
 
+    /// <summary>
+    /// The current node in conversation for navigating the dialogue tree.
+    /// </summary>
     private ConversationNode conversation;
 
 

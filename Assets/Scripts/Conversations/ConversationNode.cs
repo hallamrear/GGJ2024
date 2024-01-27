@@ -62,6 +62,7 @@ public class ConversationNode
 
     public ConversationNode ConversationChoice(int choice)
     {
+        FireEventForOpinionChange(choice);
         return (choice < children.Count) ? children[choice] : startNode;
     }
 
