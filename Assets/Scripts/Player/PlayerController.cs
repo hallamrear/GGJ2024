@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        if(!playerInteraction.IsInteracting)
+        if (!playerInteraction.IsInteracting)
         {
             playerMovement.ProcessMovement(new Vector2(moveX, moveY));
         }

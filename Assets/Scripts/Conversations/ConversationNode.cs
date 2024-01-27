@@ -11,7 +11,7 @@ public class ConversationNode
     private string entryText;
     private List<string> replies;
     private ConversationNode startNode;
-    private int opinionModifier = 0;
+    private float opinionModifier = 0;
 
     public string Text
     {
@@ -39,7 +39,7 @@ public class ConversationNode
         
         if (nodeToLoad.Attribute("OpinionModifier") != null)
         {
-            opinionModifier = Convert.ToInt32(nodeToLoad.Attribute("OpinionModifier").Value);
+            opinionModifier = (float)Convert.ToDouble(nodeToLoad.Attribute("OpinionModifier").Value);
         }
 
         foreach (var ntl in nodeToLoad.Elements())
@@ -60,18 +60,25 @@ public class ConversationNode
         }
     }
 
-    public ConversationNode ConversationChoice(int choice)
+    public ConversationNode ConversationChoice(int choice, ref float clownOpinion)
     {
-        FireEventForOpinionChange(choice);
+        FireEventForOpinionChange(choice, ref clownOpinion);
         return (choice < children.Count) ? children[choice] : startNode;
     }
 
-    public void FireEventForOpinionChange(int choice)
+    public void FireEventForOpinionChange(int choice, ref float clownOpinion)
     {
         if (choice < children.Count)
         {
-            int changeInOpinion = children[choice].opinionModifier;
-            // TODO: Propogate this to the clowns opinion of the player somehow.
+            clownOpinion += children[choice].opinionModifier;
+            if (clownOpinion < 0)
+            {
+                clownOpinion = 0;
+            }
+            else if (clownOpinion > 1)
+            {
+                clownOpinion = 1;
+            }
         }
     }
 }

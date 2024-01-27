@@ -2,16 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Location available in game
-/// </summary>
-public enum Location
-{
-    circus,
-    tent,
-    restaurant,
-    coffeeShop,
-}
+
 
 
 /// <summary>
@@ -20,6 +11,8 @@ public enum Location
 public class NotifyEvent
 {
     public Location location;
+    public string OtherColliderOwner;
+
 }
 
 /// <summary>
@@ -27,7 +20,6 @@ public class NotifyEvent
 /// </summary>
 public class PlayerEnteredInteractRange : NotifyEvent
 {
-
 }
 
 /// <summary>
@@ -35,7 +27,6 @@ public class PlayerEnteredInteractRange : NotifyEvent
 /// </summary>
 public class PlayerLeftInteractRange : NotifyEvent
 {
-
 }
 
 /// <summary>
@@ -43,7 +34,6 @@ public class PlayerLeftInteractRange : NotifyEvent
 /// </summary>
 public class PromptUIBaseEvent : NotifyEvent
 {
-
 }
 
 
@@ -55,7 +45,6 @@ public class PromptUIBaseEvent : NotifyEvent
 /// </summary>
 public class BeginInteractionEvent : NotifyEvent
 {
-
 }
 
 /// <summary>
@@ -63,5 +52,4 @@ public class BeginInteractionEvent : NotifyEvent
 /// </summary>
 public class EndInteractionEvent : NotifyEvent
 {
-
 }

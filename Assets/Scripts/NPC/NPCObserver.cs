@@ -28,22 +28,26 @@ public class NPCObserver : Observer
         {
             case PlayerEnteredInteractRange:
                 //Debug.Log("Player In Range");
-                // Stop moving
-                movement.ToggleMovement();
-                    break;
+                if(e.OtherColliderOwner == this.gameObject.name)
+                {
+                    movement.ToggleMovement(stopped : true);
+                }
+                break;
             case PlayerLeftInteractRange:
-                // contiue moving
-                movement.ToggleMovement();
+                if (e.OtherColliderOwner == this.gameObject.name)
+                {
+                    movement.ToggleMovement(stopped : false);
+                }
                 break;
 
             case BeginInteractionEvent:
                 Debug.Log("Interaction Started");
-
+                ClownDialogueManager.ClownDialogueManagerInstance.BeginDialogue(this.GetComponent<NPCInfo>().ClownType, Location.tent);
                 break;
 
             case EndInteractionEvent:
                 Debug.Log("Interaction Ended");
-
+                ClownDialogueManager.ClownDialogueManagerInstance.EndDialogue();
                 break;
 
             default:

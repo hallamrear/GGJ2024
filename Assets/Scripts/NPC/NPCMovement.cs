@@ -6,13 +6,20 @@ public class NPCMovement : MovementBase
 {
     [Header("NPC Specific Movement")]
     public float directionTime = 100;
+    public List<MoveBehaviour> movementOptions;
 
-    private float currentTime = 0;
     private bool IsStopped = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        foreach (MoveBehaviour b in movementOptions)
+        {
+            if (b.Active)
+            {
+                b.InitialiseMovement(rigidBody.position);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -23,29 +30,44 @@ public class NPCMovement : MovementBase
 
     private void FixedUpdate()
     {
-        currentTime++;
-        if(currentTime == directionTime)
-        {
-            headingDirection = Vector2.zero - headingDirection;
-            currentTime = 0;
-        }
-        moveDirection += headingDirection;
-        moveDirection.Normalize();
-        Move();
-    }
-
-    private void Move()
-    {
         if(!IsStopped)
         {
-            rigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            GetHeadingDriection();
+            moveDirection += headingDirection;
+            moveDirection.Normalize();
+            Move();
         }
     }
 
-    public void ToggleMovement()
+    /// <summary>
+    /// Calculate Heading direction based on the active movebehaviour
+    /// </summary>
+    private void GetHeadingDriection()
+    {
+        foreach(MoveBehaviour b in movementOptions)
+        {
+            if(b.Active)
+            {
+                headingDirection = b.CalculateMoveDirection(rigidBody.position);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Move in the direction of the heading, uses rigid body 2d
+    /// </summary>
+    private void Move()
+    {
+        rigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+    }
+
+    /// <summary>
+    /// Toggles movement on/off
+    /// </summary>
+    public void ToggleMovement(bool stopped)
     {
         //Debug.Log("stop moving");
-        IsStopped = !IsStopped;
+        IsStopped = stopped;
         rigidBody.velocity = Vector2.zero;
     }
 }

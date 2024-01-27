@@ -57,6 +57,7 @@ public class PlayerInteraction : Subject
     {
         //Debug.Log("collision entered");
         IsInRange = true;
+        enteredInteractRangeEvent.OtherColliderOwner = collision.name;
         OnNotifyObservers(null, enteredInteractRangeEvent);
     }
 
@@ -64,6 +65,7 @@ public class PlayerInteraction : Subject
     {
         //Debug.Log("collision exit");
         IsInRange = false;
+        leftInteractRange.OtherColliderOwner = collision.name;
         OnNotifyObservers(null, leftInteractRange);
     }
 }

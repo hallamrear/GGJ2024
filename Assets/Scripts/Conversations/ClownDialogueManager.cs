@@ -3,42 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Xml.Linq;
 
-public enum Clowns
-{
-    TEST
-}
-
-public enum Locations
-{ 
-    BIGTOP
-}
-
-public class ClownInfo
-{
-    public Sprite clownPhoto;
-    public string ClownIntro;
-
-    public ClownInfo(string clownName, string introText)
-    {
-        clownPhoto = Resources.Load<Sprite>(@$"TestAssets\{clownName}_TestImage");
-        ClownIntro = introText;
-    }
-}
-
-public class LocationBackgrounds
-{
-    public Sprite BigTopBackground;
-
-    public LocationBackgrounds()
-    {
-        BigTopBackground = Resources.Load<Sprite>(@$"TestAssets\Background_TestImage");
-
-    }
-
-}
-
-
-public class ClownDialogueManager : MonoBehaviour
+public class ClownDialogueManager : MonoBehaviour 
 {
     /// <summary>
     /// Singleton reference for the <see cref="ClownDialogueManager"/>
@@ -97,18 +62,40 @@ public class ClownDialogueManager : MonoBehaviour
     /// </summary>
     private ConversationNode conversation;
 
+    /// <summary>
+    /// Reference to the object in the prefab that holds all parts of the UI for showing and hiding the conversation system.
+    /// </summary>
+    public GameObject everythingHolder;
 
-    ClownInfo cInfo;
-    LocationBackgrounds locationBackgrounds;
+    /// <summary>
+    /// ClownOpinionDisplay
+    /// </summary>
+    public Slider ClownOpinionOfYou;
+
+    /// <summary>
+    /// Helper class for handling all image resources for clowns and backgrounds.
+    /// </summary>
+    DialogueResources resources;
+
+    private float clownOpinion = 0;
 
     // Start is called before the first frame update
     private void Start()
     {
         clownDialogueManager = this;
-        cInfo = new ClownInfo("Buggy", "It'sa Me Buggyman");
-        locationBackgrounds = new LocationBackgrounds();
+        resources = new DialogueResources();
+        resources.PreLoadClowns();
+        resources.PreLoadBackgrounds();
+    }
 
-        BeginDialogue(Clowns.TEST, Locations.BIGTOP);
+    private void PreLoadClowns()
+    {
+
+    }
+
+    private void PreLoadBackgrounds()
+    {
+
     }
 
     // Update is called once per frame
@@ -117,16 +104,23 @@ public class ClownDialogueManager : MonoBehaviour
         
     }
 
+    public void ExitDialogueButton()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>().EnterHit();
+    }
+
     /// <summary>
     /// Begins the dialogue interaction for the clown and loads all relevant images.
     /// </summary>
     /// <param name="clownToLoad"></param>
-    public void BeginDialogue(Clowns clownToLoad, Locations location)
+    public void BeginDialogue(Clowns clownToLoad, Location location)
     {
+        everythingHolder.SetActive(true);
+
         switch (clownToLoad)
         {
             case Clowns.TEST:
-                ClownImage.sprite = cInfo.clownPhoto;
+                ClownImage.sprite = resources.ClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\TestAssets\TestConvo.xml"));
                 ClownDialogue.SetText(conversation.Text);
                 break;
@@ -136,14 +130,19 @@ public class ClownDialogueManager : MonoBehaviour
 
         switch (location)
         {
-            case Locations.BIGTOP:
-                BackgroundImage.sprite = locationBackgrounds.BigTopBackground;
+            case Location.tent:
+                BackgroundImage.sprite = resources.BigTopBackground;
                 break;
             default:
                 break;
         }
 
         HidePlayerOptions();
+    }
+
+    public void EndDialogue()
+    {
+        everythingHolder.SetActive(false);
     }
 
     private void HidePlayerOptions()
@@ -192,7 +191,9 @@ public class ClownDialogueManager : MonoBehaviour
 
     private void ProcessNextDialogue(int choice)
     {
-        conversation = conversation.ConversationChoice(choice);
+        conversation = conversation.ConversationChoice(choice, ref clownOpinion);
         ClownDialogue.SetText(conversation.Text);
+
+        ClownOpinionOfYou.value = clownOpinion;
     }
 }
