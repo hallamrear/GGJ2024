@@ -5,7 +5,10 @@ using UnityEngine;
 public class WanderBehaviour : MoveBehaviour
 {
     [Header("")]
-    public float WanderRadius = 10;
+    public float WanderRadiusSq = 40;
+    public Vector2 WanderCenterPoint;
+
+    private Vector2 heading;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +24,20 @@ public class WanderBehaviour : MoveBehaviour
 
     public override void InitialiseMovement(Vector2 pos)
     {
+        heading = Random.insideUnitCircle;
     }
 
     public override Vector2 CalculateMoveDirection(Vector2 pos)
     {
-        //move to here
-        Vector2 heading = new Vector2();
-
-        return heading;
+        if ((pos - WanderCenterPoint).sqrMagnitude > WanderRadiusSq)
+        {
+            //random new direction
+            heading = Random.insideUnitCircle;
+            return heading;
+        }
+        else
+        {
+            return heading;
+        }
     }
 }

@@ -11,7 +11,6 @@ public class PaceBehaviour : MoveBehaviour
 
     private PositionNodeManager positionManager = new PositionNodeManager();
     private PositionNode CurrentHeadingNode;
-    private Vector2 cachedHeadingDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,6 @@ public class PaceBehaviour : MoveBehaviour
     public override void InitialiseMovement(Vector2 pos)
     {
         CurrentHeadingNode = positionManager.BetterNodeCreation(PacingPoints);
-        cachedHeadingDirection = CurrentHeadingNode.Position - pos;
     }
 
     public override Vector2 CalculateMoveDirection(Vector2 pos)

@@ -20,6 +20,8 @@ public enum Location
 public class NotifyEvent
 {
     public Location location;
+    public string OtherColliderOwner;
+
 }
 
 /// <summary>
@@ -27,7 +29,6 @@ public class NotifyEvent
 /// </summary>
 public class PlayerEnteredInteractRange : NotifyEvent
 {
-
 }
 
 /// <summary>
@@ -35,7 +36,6 @@ public class PlayerEnteredInteractRange : NotifyEvent
 /// </summary>
 public class PlayerLeftInteractRange : NotifyEvent
 {
-
 }
 
 /// <summary>
@@ -43,7 +43,6 @@ public class PlayerLeftInteractRange : NotifyEvent
 /// </summary>
 public class PromptUIBaseEvent : NotifyEvent
 {
-
 }
 
 
@@ -55,7 +54,6 @@ public class PromptUIBaseEvent : NotifyEvent
 /// </summary>
 public class BeginInteractionEvent : NotifyEvent
 {
-
 }
 
 /// <summary>
@@ -63,5 +61,4 @@ public class BeginInteractionEvent : NotifyEvent
 /// </summary>
 public class EndInteractionEvent : NotifyEvent
 {
-
 }

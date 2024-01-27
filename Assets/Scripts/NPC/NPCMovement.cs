@@ -64,10 +64,10 @@ public class NPCMovement : MovementBase
     /// <summary>
     /// Toggles movement on/off
     /// </summary>
-    public void ToggleMovement()
+    public void ToggleMovement(bool stopped)
     {
         //Debug.Log("stop moving");
-        IsStopped = !IsStopped;
+        IsStopped = stopped;
         rigidBody.velocity = Vector2.zero;
     }
 }
