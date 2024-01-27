@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Xml.Linq;
+using System.Collections;
 
 public class ClownDialogueManager : MonoBehaviour 
 {
@@ -82,7 +83,7 @@ public class ClownDialogueManager : MonoBehaviour
     /// </summary>
     DialogueResources resources;
 
-    private float clownOpinion = 0;
+    NPCInfo activeConvoInfo;
 
     // Start is called before the first frame update
     private void Start()
@@ -91,6 +92,7 @@ public class ClownDialogueManager : MonoBehaviour
         resources = new DialogueResources();
         resources.PreLoadClowns();
         resources.PreLoadBackgrounds();
+        activeConvoInfo = null;
     }
 
     private void PreLoadClowns()
@@ -118,8 +120,9 @@ public class ClownDialogueManager : MonoBehaviour
     /// Begins the dialogue interaction for the clown and loads all relevant images.
     /// </summary>
     /// <param name="clownToLoad"></param>
-    public void BeginDialogue(Clowns clownToLoad, Location location)
+    public void BeginDialogue(Clowns clownToLoad, Location location, NPCInfo clownInfo)
     {
+        activeConvoInfo = clownInfo;
         everythingHolder.SetActive(true);
 
         switch (clownToLoad)
@@ -148,6 +151,7 @@ public class ClownDialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         everythingHolder.SetActive(false);
+        activeConvoInfo = null;
     }
 
     private void HidePlayerOptions()
@@ -177,21 +181,21 @@ public class ClownDialogueManager : MonoBehaviour
 
     private void PopulateResponses()
     {
-        ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Back To Start");
-        ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Back To Start");
-        ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>().SetText("Back To Start");
+        SetText(ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>(), "Back To Start");
+        SetText(ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>(), "Back To Start");
+        SetText(ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>(), "Back To Start");
 
         if (conversation.Options.Count > 0)
         {
-            ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(conversation.Options[0]);
+            SetText(ResponseButtonOne.GetComponentInChildren<TextMeshProUGUI>(), conversation.Options[0]);
         }
         if (conversation.Options.Count > 1)
         {
-            ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(conversation.Options[1]);
+            SetText(ResponseButtonTwo.GetComponentInChildren<TextMeshProUGUI>(), conversation.Options[1]);
         }
         if (conversation.Options.Count > 2)
         {
-            ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>().SetText(conversation.Options[2]);
+            SetText(ResponseButtonThree.GetComponentInChildren<TextMeshProUGUI>(), conversation.Options[2]);
         }
     }
 
@@ -203,21 +207,58 @@ public class ClownDialogueManager : MonoBehaviour
 
     private void ProcessNextDialogue(int choice)
     {
+        float clownOpinion = (activeConvoInfo != null) ? activeConvoInfo.OpinionOfPlayer : 0;
         conversation = conversation.ConversationChoice(choice, ref clownOpinion);
-        ClownDialogue.SetText(conversation.Text);
+        SetText(ClownDialogue, conversation.Text, false);
 
-        ClownOpinionOfYou.value = clownOpinion;
+        if (activeConvoInfo != null)
+        {
+            activeConvoInfo.OpinionOfPlayer = clownOpinion;
+            ClownOpinionOfYou.value = activeConvoInfo.OpinionOfPlayer;
+        }
 
         if (conversation.Options.Count == 0)
         {
-            ReplyButtonText.SetText("Back To Start");
+            SetText(ReplyButtonText, "Back To Start");
         }
         else
         {
             if (ReplyButtonText.text != "Reply")
             {
-                ReplyButtonText.SetText("Reply");
+                SetText(ReplyButtonText, "Reply");
             }
+        }
+    }
+
+    private void SetText(TextMeshProUGUI tmp, string text, bool instantUpdate = true)
+    {
+        tmp.SetText(text);
+        if (!instantUpdate)
+        {
+            tmp.maxVisibleCharacters = 0;
+            StartCoroutine(WaitAndPrint(0.05f, tmp, text));
+        }
+        else
+        {
+            tmp.maxVisibleCharacters = text.Length;
+        }
+    }
+
+    private IEnumerator WaitAndPrint(float waitTime, TextMeshProUGUI tmp, string text)
+    {
+        bool notCompleted = true;
+        int visibleCharacters = 0;
+
+        while (notCompleted)
+        {
+            visibleCharacters++;
+            tmp.maxVisibleCharacters = visibleCharacters;
+            if (visibleCharacters >= text.Length)
+            {
+                notCompleted = false;
+            }
+
+            yield return new WaitForSeconds(waitTime);
         }
     }
 }

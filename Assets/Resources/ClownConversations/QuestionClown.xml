@@ -1,0 +1,11 @@
+<Node Text="So you think you can be a clown, a joker, a goof meister?!">
+    <Node OptionToEnter="Yeah, everyone's always laughing at me!" Text="You don't need to shout it, I can see that just looking at you!" OpinionModifier="0.01">
+    
+    </Node>
+    <Node OptionToEnter="Do I look like a funny guy to you?" Text="Not one bit funny." OpinionModifier="-0.01">
+    
+    </Node>
+    <Node OptionToEnter="I'm a bit of a jester myself" Text="I'd say you're more like a fool than a Jester." OptionToEnter="0.01">
+    
+    </Node>
+</Node>

@@ -1,4 +1,5 @@
 public enum Clowns
 {
-    TEST
+    TEST,
+    JohnClown,
 }
