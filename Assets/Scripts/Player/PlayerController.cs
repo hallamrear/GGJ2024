@@ -29,7 +29,10 @@ public class PlayerController : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        playerMovement.ProcessMovement(new Vector2(moveX, moveY));
+        if(!playerInteraction.IsInteracting)
+        {
+            playerMovement.ProcessMovement(new Vector2(moveX, moveY));
+        }
 
         bool submitHit = Input.GetButtonDown("Submit");
         if (submitHit)

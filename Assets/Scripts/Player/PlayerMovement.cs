@@ -16,8 +16,6 @@ public class PlayerMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
-        // Inputs
-        //ProcessInputs();
     }
 
     /// <summary>
@@ -30,16 +28,9 @@ public class PlayerMovement : MovementBase
     }
 
     /// <summary>
-    /// Handle Input (set in Unity settings)
+    /// Process movement based on given xy axis vector
     /// </summary>
-    void ProcessInputs()
-    {
-        //float moveX = Input.GetAxisRaw("Horizontal");
-        //float moveY = Input.GetAxisRaw("Vertical");
-        //
-        //moveDirection = new Vector2(moveX, moveY).normalized;
-    }
-
+    /// <param name="moveVec"></param>
     public void ProcessMovement(Vector2 moveVec)
     {
         moveDirection = moveVec.normalized;

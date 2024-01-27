@@ -10,13 +10,19 @@ public class PlayerInteraction : MonoBehaviour
     public BoxCollider2D boxCollider2D;
 
     public List<Observer> observers;
+    public bool IsInteracting
+    {
+        get { return isInInteraction; }
+    }
 
     private bool IsInRange = false;
-    private bool IsInInteraction = false;
+    private bool isInInteraction = false;
 
     private PlayerEnteredInteractRange enteredInteractRangeEvent = new PlayerEnteredInteractRange();
     private PlayerLeftInteractRange leftInteractRange = new PlayerLeftInteractRange();
     private BeginInteractionEvent beginInteractionEvent = new BeginInteractionEvent();
+    private EndInteractionEvent endInteractionEvent = new EndInteractionEvent();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +37,18 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(IsInRange)
         {
-            if(IsInInteraction)
+            if(isInInteraction)
             {
-                // do nothing
+                // TEMPORARY exit interaction
+                isInInteraction = false;
+
+                OnNotifyObservers(null, endInteractionEvent);
             }
             else
             {
                 //Start Interaction
                 //Debug.Log("Player Start Interaction");
+                isInInteraction = true;
                 OnNotifyObservers(null, beginInteractionEvent);
             }
         }
@@ -46,20 +56,16 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IsInRange = true;
         //Debug.Log("collision entered");
-
-
+        IsInRange = true;
         OnNotifyObservers(null, enteredInteractRangeEvent);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IsInRange = false;
         //Debug.Log("collision exit");
-
+        IsInRange = false;
         OnNotifyObservers(null, leftInteractRange);
-
     }
 
 
@@ -68,7 +74,7 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     /// <param name="player"></param>
     /// <param name="e"></param>
-    void OnNotifyObservers(EntityBase entity, NotifyEvent e)
+    private void OnNotifyObservers(EntityBase entity, NotifyEvent e)
     {
         foreach(Observer observer in observers)
         {

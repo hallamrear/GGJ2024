@@ -5,5 +5,4 @@ using UnityEngine;
 public class NPCBase : EntityBase
 {
     public NPCObserver interaction;
-    
 }

@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class NPCMovement : MovementBase
 {
-    //[Header ("Physics")]
-    //public Rigidbody2D rigidBody;
-
-    //[Header ("Move stats")]
-    //public float moveSpeed = 5;
-    //public Vector2 headingDirection = new Vector2(0, 1); 
-
     [Header("NPC Specific Movement")]
     public float directionTime = 100;
 
-    //private Vector2 moveDirection = new Vector2(0, 0);
     private float currentTime = 0;
     private bool IsStopped = false;
 
@@ -52,7 +44,8 @@ public class NPCMovement : MovementBase
 
     public void ToggleMovement()
     {
+        //Debug.Log("stop moving");
         IsStopped = !IsStopped;
-        Debug.Log("stop moving");
+        rigidBody.velocity = Vector2.zero;
     }
 }

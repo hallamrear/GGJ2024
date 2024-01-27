@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Location available in game
+/// </summary>
 public enum Location
 {
     circus,

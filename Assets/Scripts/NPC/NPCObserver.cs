@@ -27,9 +27,9 @@ public class NPCObserver : Observer
         switch(e)
         {
             case PlayerEnteredInteractRange:
-                Debug.Log("Player In Range");
-                movement.ToggleMovement();
+                //Debug.Log("Player In Range");
                 // Stop moving
+                movement.ToggleMovement();
                     break;
             case PlayerLeftInteractRange:
                 // contiue moving
@@ -37,11 +37,13 @@ public class NPCObserver : Observer
                 break;
 
             case BeginInteractionEvent:
-                //Debug.Log("Interaction Started");
+                Debug.Log("Interaction Started");
 
                 break;
 
             case EndInteractionEvent:
+                Debug.Log("Interaction Ended");
+
                 break;
 
             default:
