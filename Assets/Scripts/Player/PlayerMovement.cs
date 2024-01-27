@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 0;
+    [Header("Physics")]
     public Rigidbody2D rigidBody;
+    [Header("Move Stats")]
+    public float moveSpeed = 0;
     private Vector2 moveDirection;
     // Start is called before the first frame update
     void Start()
