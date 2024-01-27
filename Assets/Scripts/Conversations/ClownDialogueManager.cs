@@ -73,6 +73,11 @@ public class ClownDialogueManager : MonoBehaviour
     public Slider ClownOpinionOfYou;
 
     /// <summary>
+    /// Reference to the text of the reply button.
+    /// </summary>
+    public TextMeshProUGUI ReplyButtonText;
+
+    /// <summary>
     /// Helper class for handling all image resources for clowns and backgrounds.
     /// </summary>
     DialogueResources resources;
@@ -159,8 +164,15 @@ public class ClownDialogueManager : MonoBehaviour
 
     public void Reply()
     {
-        ShowPlayerOptions();
-        PopulateResponses();
+        if (ReplyButtonText.text != "Reply")
+        {
+            IssueResponse(0);
+        }
+        else
+        {
+            ShowPlayerOptions();
+            PopulateResponses();
+        }
     }
 
     private void PopulateResponses()
@@ -195,5 +207,17 @@ public class ClownDialogueManager : MonoBehaviour
         ClownDialogue.SetText(conversation.Text);
 
         ClownOpinionOfYou.value = clownOpinion;
+
+        if (conversation.Options.Count == 0)
+        {
+            ReplyButtonText.SetText("Back To Start");
+        }
+        else
+        {
+            if (ReplyButtonText.text != "Reply")
+            {
+                ReplyButtonText.SetText("Reply");
+            }
+        }
     }
 }

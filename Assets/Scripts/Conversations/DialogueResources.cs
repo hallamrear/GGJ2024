@@ -7,7 +7,7 @@ public class DialogueResources
 
     public void PreLoadClowns()
     {
-        ClownPhoto = Resources.Load<Sprite>(@$"TestAssets\Buggy_TestImage");
+        ClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JClown");
     }
 
     public void PreLoadBackgrounds()

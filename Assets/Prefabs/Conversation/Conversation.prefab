@@ -125,6 +125,7 @@ MonoBehaviour:
   ResponsesHolder: {fileID: 8075624110166980157}
   everythingHolder: {fileID: 288243407484881780}
   ClownOpinionOfYou: {fileID: 1826249998281159742}
+  ReplyButtonText: {fileID: 8964301706857003863}
 --- !u!1 &288243407484881780
 GameObject:
   m_ObjectHideFlags: 0
