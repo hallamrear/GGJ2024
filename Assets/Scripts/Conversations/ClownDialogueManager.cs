@@ -333,6 +333,11 @@ public class ClownDialogueManager : MonoBehaviour
         }
     }
 
+    public Jokebook_JokeData QuestionClownReward;
+    public Jokebook_JokeData SadClownReward;
+    public Jokebook_JokeData SelfconsciousClownReward;
+    public Jokebook_JokeData KillerClownReward;
+
     public void ClaimJokePressed()
     {
         if (activeConvoInfo.Claimed)
@@ -341,15 +346,20 @@ public class ClownDialogueManager : MonoBehaviour
         ClaimJokeButton.GetComponent<AudioSource>().Play();
         StartCoroutine(SpinAndVanish(ClaimJokeButton));
 
+        Jokebook_JokePage page = GameObject.FindGameObjectWithTag("JokeBook").GetComponentInChildren<Jokebook_JokePage>();
         switch (activeConvoInfo.ClownType)
         {
             case Clowns.QuestionClown:
+                page.AddJoke(QuestionClownReward);
                 break;
             case Clowns.SadClown:
+                page.AddJoke(SadClownReward);
                 break;
             case Clowns.SelfconsciousClown:
+                page.AddJoke(SelfconsciousClownReward);
                 break;
             case Clowns.KillerClown:
+                page.AddJoke(KillerClownReward);
                 break;
         }
     }

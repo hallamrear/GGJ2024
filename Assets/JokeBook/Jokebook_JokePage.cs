@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jokebook_JokePage : Jokebook_TextPage
 {
@@ -17,5 +18,13 @@ public class Jokebook_JokePage : Jokebook_TextPage
         }
 
         m_MainText.SetText(jokeList);
+    }
+
+    public void CheckForVictory()
+    {
+        if (m_JokeList.Count >= 4)
+        {
+            SceneManager.LoadScene("CreditsScene");
+        }
     }
 }
