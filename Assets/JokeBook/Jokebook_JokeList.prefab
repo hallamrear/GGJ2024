@@ -123,11 +123,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5537910780665002541}
         m_TargetAssemblyTypeName: Jokebook_JokePage, Assembly-CSharp
-        m_MethodName: AddJoke
-        m_Mode: 2
+        m_MethodName: CheckForVictory
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8044e4c71fda7c242ae1255433478c2f, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Jokebook_JokeData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -198,10 +198,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Submit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 599f2208fd63a7e44884f953dfc74a0e, type: 2}
+  m_sharedMaterial: {fileID: 1998522636463353885, guid: 599f2208fd63a7e44884f953dfc74a0e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -305,11 +305,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4813566648972120332, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 26.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813566648972120332, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 599f2208fd63a7e44884f953dfc74a0e, type: 2}
+    - target: {fileID: 4813566648972120332, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1998522636463353885, guid: 599f2208fd63a7e44884f953dfc74a0e, type: 2}
+    - target: {fileID: 4813566648972120332, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6271025035818658225, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
       propertyPath: m_fontSize
-      value: 21.85
+      value: 25.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271025035818658225, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 599f2208fd63a7e44884f953dfc74a0e, type: 2}
+    - target: {fileID: 6271025035818658225, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1998522636463353885, guid: 599f2208fd63a7e44884f953dfc74a0e, type: 2}
+    - target: {fileID: 6271025035818658225, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8159686631073754335, guid: 6fa1ba0c7419c4a4b8f8c5ade6b28918, type: 3}
       propertyPath: m_AnchorMax.y

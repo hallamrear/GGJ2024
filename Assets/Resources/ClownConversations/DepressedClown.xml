@@ -10,7 +10,7 @@
                         <Node OptionToEnter="Did you hear about the clown who grew mushrooms? He performed fungi-tions" Text="HAHAHAHA YES! MORE MORE!" OpinionModifier="0.167">
                             <Node OptionToEnter="Why did the clown cross the road? To get to the other side of the circus." Text="Why would there be a road in the circus grounds?" OpinionModifier="-1"/>
                             <Node OptionToEnter="Why did the clown break up with his girlfriend? She said to stop clowning around" Text="You seem to like the recently broken up with clown jokes but they're good!" OpinionModifier="0.167">
-                                <Node OptionToEnter="Why did the clown hate playing tennis? He couldn't stand all of the racket." Text="AHA YES RACKET!!!" OpinionModifier="0.167"/>
+                                <Node OptionToEnter="Why did the clown hate playing tennis? He couldn't stand all of the racket." Text="AHA YES RACKET!!! You've really improved my mood and I'll tell you my best joke!" OpinionModifier="0.167"/>
                                 <Node OptionToEnter="Why did the clown go to church? He had a wild past and was looking for some divine guidance" Text="I don't really see the joke there? Now I'm just depressed and confused" OpinionModifier="-1"/>
                                 <Node OptionToEnter="Why did the clown stop using the trampoline? He was afraid he was becoming a bit of a bozo" Text="My best friend is called Bozo, I can't believe you'd try using him as a punchline!" OpinionModifier="-1"/>
                             </Node>
