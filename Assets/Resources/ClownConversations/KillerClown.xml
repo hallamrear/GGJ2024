@@ -1,9 +1,24 @@
 <Node Text="Well hello, who do you think you are walking into my woods alone?">
     <Node OptionToEnter="I'm a clown in training looking to learn new jokes!" Text="A clown in training, really, I know a lot about clowns and jokes.">
-    
+        <Node OptionToEnter="What do you know about clowns?" Text="I know what they sound like as they die."/>
+        <Node OptionToEnter="What do you know about jokes?" Text="I can deliver a killer punchline."/>
+        <Node OptionToEnter="Do you have a good joke you could tell me?" Text="I could, but if I did I'd have to kill you."/>
     </Node>
     <Node OptionToEnter="Who says these are your woods, why would you even be over here in the woods on your own anyway?" Text="These woods are where I need to be, society shuns clowns like me."/>
-    
+    <Node OptionToEnter="We really do live in a society, you're right" Text="We do, and society can't be trusted">
+        <Node OptionToEnter="So about this society of clowns, do you happen to know any good clown jokes?" Text="I know a lot about clowns and jokes.">
+            <Node OptionToEnter="What do you know about clowns?" Text="I know what they sound like as they die."/>
+            <Node OptionToEnter="What do you know about jokes?" Text="I can deliver a killer punchline."/>
+            <Node OptionToEnter="Do you have a good joke you could tell me?" Text="I could, but if I did I'd have to kill you."/>
+        </Node>
+        <Node OptionToEnter="So about this society of clowns, who has the best jokes?" Text="I do but I wont share them with you."/>
+        <Node OptionToEnter="What did you do that makes clown society shun you?" Text="I lived life differently, took different liberties with what I think is acceptable, and showed them why they should be afraid" OpinionModifier="0.1">
+            <Node OptionToEnter="What kind of living differently did you.. do?" Text="I got very into my cooking and used some unorthadox ingredients...">
+                <Node OptionToEnter="Could you tell me one of your recipes?" Text="Yes, it's the best starting point for a good tasty stew" OpinionModifier="1"/>
+                <Node OptionToEnter="Were those unorthodox ingredients legal?" Text="What are you, a narc?" OpinionModifier="-1"/>
+            </Node>
+            <Node OptionToEnter="I don't want to know about living differently, tell me a joke!" Text="Tell you a joke, do you think I'm some kinda clown?!" OpinionModifier="-1"/>
+            <Node OptionToEnter="Why would you live differently, I like living normally?" Text="Then I don't want to talk to you!" OpinionModifier="-1"/>
+        </Node>
     </Node>
-    <Node OptionToEnter="..." Text="Well speak up and say something or this'll be the last of you!"/>
 </Node>
