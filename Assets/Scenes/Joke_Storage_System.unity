@@ -227,7 +227,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
+  m_BackGroundColor: {r: 1, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -315,10 +315,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 385521154894811213, guid: 5b4e94730504ded4394cc828f7eb0ca4, type: 3}
-      propertyPath: m_DataObject
-      value: 
-      objectReference: {fileID: 11400000, guid: 1c821f52d69164943a8e92055449d0aa, type: 2}
     - target: {fileID: 686800436483365055, guid: 5b4e94730504ded4394cc828f7eb0ca4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -495,10 +491,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4524673417829932619, guid: 5b4e94730504ded4394cc828f7eb0ca4, type: 3}
-      propertyPath: m_DataObject
-      value: 
-      objectReference: {fileID: 11400000, guid: 208e4e7ff68d256459bc9d51d3e35c22, type: 2}
     - target: {fileID: 5047946673754484186, guid: 5b4e94730504ded4394cc828f7eb0ca4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -623,10 +615,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Joke Book
       objectReference: {fileID: 0}
-    - target: {fileID: 8159598559167035261, guid: 5b4e94730504ded4394cc828f7eb0ca4, type: 3}
-      propertyPath: m_DataObject
-      value: 
-      objectReference: {fileID: 11400000, guid: 1c821f52d69164943a8e92055449d0aa, type: 2}
     - target: {fileID: 9073930270842519439, guid: 5b4e94730504ded4394cc828f7eb0ca4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
