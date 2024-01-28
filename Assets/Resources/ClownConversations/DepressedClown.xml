@@ -1,0 +1,38 @@
+<Node Text="Leave me alone!">
+    <Node OptionToEnter="What's wrong?" Text="I'm a terrible terrible sad clown!" OpinionModifier="0.167">
+        <Node OptionToEnter="Why are you a sad clown?" Text="I don't want to talk about that" OpinionModifier="-0.05">
+            <Node OptionToEnter="Would a joke cheer you up?" Text="It might do but you'd need to tell a really funny one!" OpinionModifier="0.05">
+                <Node OptionToEnter="What's a clown's favorite sandwich? Peanut butter and jello" Text=".... is that even a joke? Now I'm just sad AND confused" OpinionModifier="-1"/>
+                <Node OptionToEnter="Why did the clown cross the road? To get to the other side of the circus." Text="Why would there be a road in the circus grounds?" OpinionModifier="-1"/>
+                <Node OptionToEnter="Why should a clown always carry a ladder? Incase they need to rise to the occassion!" Text="That one is actually okay! Do you have any more?" OpinionModifier="0.167">
+                    <Node OptionToEnter="Why did the clown break up with his girlfriend? She was juggling too many dates." Text="HAHA! Juggling, like a clown does! That's a good one. Do you have anyh more?" OpinionModifier="0.167">
+                        <Node OptionToEnter="Why did the clown wear yellow suspenders? To keep his pants up!" Text="Well yes... suspenders are to keep pants up, but I don't see how that's a joke?" OpinionModifier="-1"/>
+                        <Node OptionToEnter="Did you hear about the clown who grew mushrooms? He performed fungi-tions" Text="HAHAHAHA YES! MORE MORE!" OpinionModifier="0.167">
+                            <Node OptionToEnter="Why did the clown cross the road? To get to the other side of the circus." Text="Why would there be a road in the circus grounds?" OpinionModifier="-1"/>
+                            <Node OptionToEnter="Why did the clown break up with his girlfriend? She said to stop clowning around" Text="You seem to like the recently broken up with clown jokes but they're good!" OpinionModifier="0.167">
+                                <Node OptionToEnter="Why did the clown hate playing tennis? He couldn't stand all of the racket." Text="AHA YES RACKET!!!" OpinionModifier="0.167"/>
+                                <Node OptionToEnter="Why did the clown go to church? He had a wild past and was looking for some divine guidance" Text="I don't really see the joke there? Now I'm just depressed and confused" OpinionModifier="-1"/>
+                                <Node OptionToEnter="Why did the clown stop using the trampoline? He was afraid he was becoming a bit of a bozo" Text="My best friend is called Bozo, I can't believe you'd try using him as a punchline!" OpinionModifier="-1"/>
+                            </Node>
+                            <Node OptionToEnter="Why do clowns always wear makeup? So they can put on a bright face in any situation" Text="You don't need to bring up that I'm sad, even behind this makeup" OpinionModifier="-1"/>
+                        </Node>
+                        <Node OptionToEnter="What's a clown's favorite sandwich? Peanut butter and jello" Text=".... is that even a joke? Now I'm just sad AND confused" OpinionModifier="-1"/>
+                    </Node>
+                    <Node OptionToEnter="Why do clowns always wear makeup? So they can put on a bright face in any situation" Text="You don't need to bring up that I'm sad, even behind this makeup" OpinionModifier="-1"/>
+                    <Node OptionToEnter="Why did the clown stop using the trampoline? He was afraid he was becoming a bit of a bozo" Text="My best friend is called Bozo, I can't believe you'd try using him as a punchline!" OpinionModifier="-1"/>
+                </Node>
+            </Node>
+            <Node OptionToEnter="Would telling me a joke cheer you up?" Text="Why was the clown afraid of heights? Because he might fall down in a pit of despair! Although I'm already in a pit of despair so it doesn't really matter if I go up any heights does it?" OpinionModifier="-1"/>
+        </Node>
+        <Node OptionToEnter="A sad clown, that's not very original" Text="A rude person, that's not very original!" OpinionModifier="-1"/>
+        <Node OptionToEnter="How can you say you're a terrible clown, people must see you perform?" Text="AND THEY ALL BOO ME!" OpinionModifier="0.1">
+            <Node OptionToEnter="Would telling me a joke cheer you up?" Text="Why was the clown afraid of heights? Because he might fall down in a pit of despair! Although I'm already in a pit of despair so it doesn't really matter if I go up any heights does it?" OpinionModifier="-1"/>
+            <Node OptionToEnter="Why don't you tell me a joke, I'm sure it'd be a good one!" Text="What's a clown's favorite sandwich? Peanut butter and jello" OpinionModifier="-0.1">
+                <Node OptionToEnter="Wow that was a terrible joke, you're right you are terrible!" Text="Exactly! Now go away" OpinionModifier="-1"/>
+                <Node OptionToEnter="That might be the worst joke I've ever heard, you should quit" Text="Exactly! Now go away" OpinionModifier="-1"/>
+                <Node OptionToEnter="BOOOOOOOO BOOOOOO BOOOO" Text="..." OpinionModifier="-1"/>
+            </Node>
+        </Node>
+    </Node>
+    <Node OptionToEnter="No, I want to talk to you!" Text="WELL I DON'T WANT TO TALK TO YOU!" OpinionModifier="-1"/>
+</Node>

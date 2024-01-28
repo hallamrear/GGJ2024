@@ -8,6 +8,7 @@ public class NPCMovement : MovementBase
     public float directionTime = 100;
     public List<MoveBehaviour> movementOptions;
 
+    public bool Stopped { get { return IsStopped; } }
     private bool IsStopped = false;
 
     // Start is called before the first frame update
