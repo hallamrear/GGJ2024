@@ -13,10 +13,10 @@ public class DialogueResources
     public void PreLoadClowns()
     {
         ClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JClown");
-        BallClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JClown");
+        BallClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\BallClownPhoto");
         JohnClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JClown");
-        GirlClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JClown");
-        JugglingClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JClown");
+        GirlClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\GirlClownPhoto");
+        JugglingClownPhoto = Resources.Load<Sprite>(@$"ClownPortraits\JugglingClownPhoto");
     }
 
     public void PreLoadBackgrounds()

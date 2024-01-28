@@ -7,4 +7,6 @@ public class NPCInfo : MonoBehaviour
     public Clowns ClownType;
 
     public float OpinionOfPlayer = 0;
+
+    public bool Claimed = false;
 }
