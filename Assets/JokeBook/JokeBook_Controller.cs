@@ -52,27 +52,32 @@ public class Jokebook_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.UpArrow) && m_InTransition == false)
-        {
-            ShowBookUI();
-        }
+        //if (Input.GetKeyUp(KeyCode.UpArrow) && m_InTransition == false)
+        //{
+        //    ShowBookUI();
+        //}
 
-        if (Input.GetKeyUp(KeyCode.DownArrow) && m_InTransition == false)
-        {
-            HideBookUI();
-        }
+        //if (Input.GetKeyUp(KeyCode.DownArrow) && m_InTransition == false)
+        //{
+        //    HideBookUI();
+        //}
 
-        if (m_IsVisible)
-        {
-            if(Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                m_PageManager.DecrementPage();
-            }
+        //if (m_IsVisible)
+        //{
+        //    if(Input.GetKeyDown(KeyCode.LeftArrow))
+        //    {
+        //        m_PageManager.DecrementPage();
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                m_PageManager.IncrementPage();
-            }
+        //    if (Input.GetKeyDown(KeyCode.RightArrow))
+        //    {
+        //        m_PageManager.IncrementPage();
+        //    }
+        //}
+
+        if (Input.GetKeyUp(KeyCode.Tab) && m_InTransition == false)
+        {
+            ToggleVisiblity();
         }
 
         m_PreviousButton.gameObject.SetActive(m_PageManager.GetCurrentPageIndex() != 0);

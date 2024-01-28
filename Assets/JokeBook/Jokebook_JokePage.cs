@@ -8,6 +8,7 @@ public class Jokebook_JokePage : Jokebook_TextPage
     [SerializeField]
     List<Jokebook_JokeData> m_JokeList;
 
+    int jokesStored = 0;
     public void AddJoke(Jokebook_JokeData joke)
     {
         string jokeList = m_MainText.text;
@@ -18,13 +19,14 @@ public class Jokebook_JokePage : Jokebook_TextPage
         }
 
         m_MainText.SetText(jokeList);
+        jokesStored++;
     }
 
     public void CheckForVictory()
     {
-        if (m_JokeList.Count >= 4)
+        if (jokesStored >= 4)
         {
-            SceneManager.LoadScene("CreditsScene");
+            SceneManager.LoadScene("CredtisScene");
         }
     }
 }

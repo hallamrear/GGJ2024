@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainLevel.unity
     guid: b625bdc5709cf5f4cb579932c67e75c8
+  - enabled: 1
+    path: Assets/Scenes/CredtisScene.unity
+    guid: 7b1cf406dec5d8644afe9b9b909d4373
   m_configObjects: {}
