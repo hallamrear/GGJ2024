@@ -41,13 +41,11 @@ public class NPCObserver : Observer
                 break;
 
             case BeginInteractionEvent:
-                Debug.Log("Interaction Started");
                 if (movement.Stopped)
                     ClownDialogueManager.ClownDialogueManagerInstance.BeginDialogue(this.GetComponent<NPCInfo>().ClownType, Location.tent, this.GetComponent<NPCInfo>());
                 break;
 
             case EndInteractionEvent:
-                Debug.Log("Interaction Ended");
                 if (movement.Stopped)
                     ClownDialogueManager.ClownDialogueManagerInstance.EndDialogue();
                 break;

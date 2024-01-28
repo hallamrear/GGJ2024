@@ -79,6 +79,11 @@ public class ClownDialogueManager : MonoBehaviour
     public TextMeshProUGUI ReplyButtonText;
 
     /// <summary>
+    /// Reference to the ClaimJoke button.
+    /// </summary>
+    public GameObject ClaimJokeButton;
+
+    /// <summary>
     /// Helper class for handling all image resources for clowns and backgrounds.
     /// </summary>
     DialogueResources resources;
@@ -95,20 +100,28 @@ public class ClownDialogueManager : MonoBehaviour
         activeConvoInfo = null;
     }
 
-    private void PreLoadClowns()
-    {
-
-    }
-
-    private void PreLoadBackgrounds()
-    {
-
-    }
-
     // Update is called once per frame
     private void Update()
     {
-        
+        if (activeConvoInfo != null && activeConvoInfo.OpinionOfPlayer >= 1)
+        {
+            if (!ClaimJokeButton.activeSelf)
+            {
+                interuptSpin = true;
+                ClaimJokeButton.transform.SetPositionAndRotation(ClaimJokeButton.transform.position, Quaternion.Euler(new Vector3(0, 0, 26.531f)));
+                ClaimJokeButton.transform.localScale = new Vector3(4.30905f, 21.62503f, 4.30905f);
+                ClaimJokeButton.SetActive(true);
+            }
+        }
+        else
+        {
+            if (ClaimJokeButton.activeSelf)
+            {
+                ClaimJokeButton.SetActive(false);
+                interuptSpin = true;
+            }
+        }
+
     }
 
     public void ExitDialogueButton()
@@ -123,7 +136,13 @@ public class ClownDialogueManager : MonoBehaviour
     public void BeginDialogue(Clowns clownToLoad, Location location, NPCInfo clownInfo)
     {
         activeConvoInfo = clownInfo;
+        ClownOpinionOfYou.value = activeConvoInfo.OpinionOfPlayer;
         everythingHolder.SetActive(true);
+
+        ClaimJokeButton.transform.SetPositionAndRotation(ClaimJokeButton.transform.position, Quaternion.Euler(new Vector3(0, 0, 26.531f)));
+        ClaimJokeButton.transform.localScale = new Vector3(4.30905f, 21.62503f, 4.30905f);
+
+        ClownImage.gameObject.GetComponent<Transform>().SetPositionAndRotation(ClownImage.gameObject.transform.position, Quaternion.identity);
 
         switch (clownToLoad)
         {
@@ -272,7 +291,7 @@ public class ClownDialogueManager : MonoBehaviour
 
         while (notCompleted)
         {
-            if (activeConvoInfo.ClownType == Clowns.QuestionClown)
+            if (activeConvoInfo?.ClownType == Clowns.QuestionClown)
             {
                 ClownImage.gameObject.GetComponent<Transform>().Rotate(new Vector3(0, 0, rotationPerLetter));
             }
@@ -285,6 +304,53 @@ public class ClownDialogueManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    private bool interuptSpin = false;
+    private IEnumerator SpinAndVanish(GameObject gameObject)
+    {
+        interuptSpin = false;
+        bool notCompleted = true;
+        while (notCompleted)
+        {
+            gameObject.transform.Rotate(new Vector3(0, 0, 25));
+            gameObject.transform.localScale -= new Vector3(0.5f, 2.5f, 0.5f);
+
+            yield return new WaitForSeconds(0.01f);
+
+            if (gameObject.transform.localScale.x <= 0)
+            {
+                gameObject.transform.localScale = new Vector3(0, 0, 0);
+                notCompleted = false;
+            }
+
+            if (interuptSpin)
+            {
+                interuptSpin = false;
+                break;
+            }
+        }
+    }
+
+    public void ClaimJokePressed()
+    {
+        if (activeConvoInfo.Claimed)
+            return;
+
+        ClaimJokeButton.GetComponent<AudioSource>().Play();
+        StartCoroutine(SpinAndVanish(ClaimJokeButton));
+
+        switch (activeConvoInfo.ClownType)
+        {
+            case Clowns.QuestionClown:
+                break;
+            case Clowns.SadClown:
+                break;
+            case Clowns.SelfconsciousClown:
+                break;
+            case Clowns.KillerClown:
+                break;
         }
     }
 }
