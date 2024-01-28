@@ -40,7 +40,6 @@ public class PlayerInteraction : Subject
             {
                 // TEMPORARY exit interaction
                 isInInteraction = false;
-
                 OnNotifyObservers(null, endInteractionEvent);
             }
             else

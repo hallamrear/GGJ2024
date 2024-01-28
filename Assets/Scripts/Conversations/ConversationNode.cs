@@ -12,6 +12,7 @@ public class ConversationNode
     private List<string> replies;
     private ConversationNode startNode;
     private float opinionModifier = 0;
+    private string reward = string.Empty;
 
     public string Text
     {
