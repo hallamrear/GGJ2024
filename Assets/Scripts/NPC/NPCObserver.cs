@@ -42,7 +42,7 @@ public class NPCObserver : Observer
 
             case BeginInteractionEvent:
                 if (movement.Stopped)
-                    ClownDialogueManager.ClownDialogueManagerInstance.BeginDialogue(this.GetComponent<NPCInfo>().ClownType, Location.tent, this.GetComponent<NPCInfo>());
+                    ClownDialogueManager.ClownDialogueManagerInstance.BeginDialogue(this.GetComponent<NPCInfo>().ClownType, Location.bridge, this.GetComponent<NPCInfo>());
                 break;
 
             case EndInteractionEvent:

@@ -155,21 +155,25 @@ public class ClownDialogueManager : MonoBehaviour
                 ClownImage.sprite = resources.JohnClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\QuestionClown.xml"));
                 ClownDialogue.SetText(conversation.Text);
+                location = Location.fence;
                 break;
             case Clowns.SadClown:
                 ClownImage.sprite = resources.BallClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\DepressedClown.xml"));
                 ClownDialogue.SetText(conversation.Text);
+                location = Location.purpleTent;
                 break;
             case Clowns.SelfconsciousClown:
                 ClownImage.sprite = resources.GirlClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\SelfConsciousClown.xml"));
                 ClownDialogue.SetText(conversation.Text);
+                location = Location.redTent;
                 break;
             case Clowns.KillerClown:
                 ClownImage.sprite = resources.JugglingClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\KillerClown.xml"));
                 ClownDialogue.SetText(conversation.Text);
+                location = Location.bridge;
                 break;
             default:
                 break;
@@ -177,8 +181,17 @@ public class ClownDialogueManager : MonoBehaviour
 
         switch (location)
         {
-            case Location.tent:
-                BackgroundImage.sprite = resources.BigTopBackground;
+            case Location.purpleTent:
+                BackgroundImage.sprite = resources.PurpleBigTop;
+                break;
+            case Location.redTent:
+                BackgroundImage.sprite = resources.RedWhiteBigTop;
+                break;
+            case Location.bridge:
+                BackgroundImage.sprite = resources.Bridge;
+                break;
+            case Location.fence:
+                BackgroundImage.sprite = resources.Field;
                 break;
             default:
                 break;

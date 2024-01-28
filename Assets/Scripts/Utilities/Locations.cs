@@ -3,8 +3,8 @@
 /// </summary>
 public enum Location
 {
-    circus,
-    tent,
-    restaurant,
-    coffeeShop,
+    purpleTent,
+    redTent,
+    bridge,
+    fence,
 }
