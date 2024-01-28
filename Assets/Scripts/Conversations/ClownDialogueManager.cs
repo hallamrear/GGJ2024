@@ -132,16 +132,24 @@ public class ClownDialogueManager : MonoBehaviour
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\TestAssets\TestConvo.xml"));
                 ClownDialogue.SetText(conversation.Text);
                 break;
-            case Clowns.JohnClown:
-                break;
             case Clowns.QuestionClown:
-                ClownImage.sprite = resources.JugglingClown;
+                ClownImage.sprite = resources.JohnClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\QuestionClown.xml"));
                 ClownDialogue.SetText(conversation.Text);
                 break;
             case Clowns.SadClown:
                 ClownImage.sprite = resources.BallClownPhoto;
                 conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\DepressedClown.xml"));
+                ClownDialogue.SetText(conversation.Text);
+                break;
+            case Clowns.SelfconsciousClown:
+                ClownImage.sprite = resources.GirlClownPhoto;
+                conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\SelfConsciousClown.xml"));
+                ClownDialogue.SetText(conversation.Text);
+                break;
+            case Clowns.KillerClown:
+                ClownImage.sprite = resources.JugglingClownPhoto;
+                conversation = new ConversationNode(XElement.Load(@"Assets\Resources\ClownConversations\KillerClown.xml"));
                 ClownDialogue.SetText(conversation.Text);
                 break;
             default:
