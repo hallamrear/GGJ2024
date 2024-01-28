@@ -21,14 +21,23 @@ public class Jokebook_Controller : MonoBehaviour
     public float TransitionTolerence;
     public float TransitionTime;
 
-    [Header("Sound Effects")]
-    AudioSource m_BookOpeningSoundEffect;
 
     private bool m_IsVisible { get; set; }  
     private bool m_InTransition = false;
 
     [SerializeField]
     Jokebook_PageManager m_PageManager;
+
+    [SerializeField]
+    GameObject m_NextButton;
+    [SerializeField]
+    GameObject m_PreviousButton;
+
+    [Header("Sound Effects")]
+    [SerializeField]
+    private AudioClip m_BookOpeningSoundEffect;
+    [SerializeField]
+    private AudioSource m_AudioSource;
 
     void Start()
     {
@@ -43,29 +52,40 @@ public class Jokebook_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.P) && m_InTransition == false)
+        if (Input.GetKeyUp(KeyCode.UpArrow) && m_InTransition == false)
         {
-            ToggleVisiblity();
+            ShowBookUI();
         }
 
-        if(m_IsVisible)
+        if (Input.GetKeyUp(KeyCode.DownArrow) && m_InTransition == false)
         {
-            if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
+            HideBookUI();
+        }
+
+        if (m_IsVisible)
+        {
+            if(Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 m_PageManager.DecrementPage();
             }
 
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 m_PageManager.IncrementPage();
             }
         }
 
+        m_PreviousButton.gameObject.SetActive(m_PageManager.GetCurrentPageIndex() != 0);
+        m_NextButton.gameObject.SetActive(m_PageManager.GetCurrentPageIndex() < m_PageManager.GetMaxPageCount() - 2);
+
         if (m_Transform == null)
-            return;
+        return;
     }
     IEnumerator MoveToTargetTransform()
     {
+        if (m_BookOpeningSoundEffect && m_AudioSource)
+            m_AudioSource.PlayOneShot(m_BookOpeningSoundEffect);
+
         float time = 0;
         Vector2 startPosition = m_Transform.position;
         Vector2 step;
@@ -94,10 +114,24 @@ public class Jokebook_Controller : MonoBehaviour
             m_TargetTransform = m_HiddenTransform;
         }
 
-        if(m_BookOpeningSoundEffect)
-            m_BookOpeningSoundEffect.Play();
-
         m_InTransition = true;
         StartCoroutine(MoveToTargetTransform());
     }
+
+    public void ShowBookUI()
+    {
+        m_TargetTransform = m_VisibleTransform;
+        m_IsVisible = true;
+        m_InTransition = true;
+        StartCoroutine(MoveToTargetTransform());
+    }
+
+    public void HideBookUI()
+    {
+        m_TargetTransform = m_HiddenTransform;
+        m_IsVisible = false;
+        m_InTransition = true;
+        StartCoroutine(MoveToTargetTransform());
+    }
+
 }

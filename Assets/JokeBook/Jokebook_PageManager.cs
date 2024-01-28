@@ -21,6 +21,21 @@ public class Jokebook_PageManager : MonoBehaviour
 
     private bool m_CanChangePages;
 
+    public int GetCurrentPageIndex()
+    {
+        return m_CurrentPageIndex;
+    }
+    public int GetMaxPageCount()
+    {
+        return MaxPageCount;
+    }
+
+    [Header("Sound Effects")]
+    [SerializeField]
+    private AudioClip m_PageFlipSoundEffect;
+    [SerializeField]
+    private AudioSource m_AudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,17 +87,22 @@ public class Jokebook_PageManager : MonoBehaviour
 
     public void IncrementPage()
     {
-        HideCurrentPageContent();
-
-        m_CurrentPageIndex += 2;
-
-        if(m_CurrentPageIndex > MaxPageCount - 2)
+        if (m_CanChangePages)
         {
-            m_CurrentPageIndex = MaxPageCount - 2;
-        }
+            HideCurrentPageContent();
 
-        Debug.Log(m_CurrentPageIndex);
-        DisplayCurrentPageContent();
+            m_CurrentPageIndex += 2;
+
+            if (m_CurrentPageIndex > MaxPageCount - 2)
+            {
+                m_CurrentPageIndex = MaxPageCount - 2;
+            }
+
+            DisplayCurrentPageContent();
+
+            if (m_PageFlipSoundEffect && m_AudioSource)
+                m_AudioSource.PlayOneShot(m_PageFlipSoundEffect);
+        }
     }
 
     public void DecrementPage()
@@ -97,6 +117,9 @@ public class Jokebook_PageManager : MonoBehaviour
                 m_CurrentPageIndex = 0;
 
             DisplayCurrentPageContent();
+
+            if (m_PageFlipSoundEffect && m_AudioSource)
+                m_AudioSource.PlayOneShot(m_PageFlipSoundEffect);
         }
     }
 
