@@ -1,2 +1,9 @@
-<Node Text="My Dialogue Isn't Written Yet">
+<Node Text="Well hello, who do you think you are walking into my woods alone?">
+    <Node OptionToEnter="I'm a clown in training looking to learn new jokes!" Text="A clown in training, really, I know a lot about clowns and jokes.">
+    
+    </Node>
+    <Node OptionToEnter="Who says these are your woods, why would you even be over here in the woods on your own anyway?" Text="These woods are where I need to be, society shuns clowns like me."/>
+    
+    </Node>
+    <Node OptionToEnter="..." Text="Well speak up and say something or this'll be the last of you!"/>
 </Node>

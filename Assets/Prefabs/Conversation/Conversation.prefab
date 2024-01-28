@@ -129,8 +129,8 @@ MonoBehaviour:
   ClaimJokeButton: {fileID: 4191753166418925738}
   QuestionClownReward: {fileID: 11400000, guid: 9d5641197b4f6b34b8273718b1b09d20, type: 2}
   SadClownReward: {fileID: 11400000, guid: 6d2a4637a9a18f74a823144796bb97a7, type: 2}
-  SelfconsciousClownReward: {fileID: 0}
-  KillerClownReward: {fileID: 0}
+  SelfconsciousClownReward: {fileID: 11400000, guid: cb7a11b759b6db84ab07ce2aa9c319ad, type: 2}
+  KillerClownReward: {fileID: 11400000, guid: 7ba26aa2b736676449628e2a89cc0ef2, type: 2}
 --- !u!1 &288243407484881780
 GameObject:
   m_ObjectHideFlags: 0

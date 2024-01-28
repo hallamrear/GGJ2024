@@ -1,2 +1,33 @@
-<Node Text="My Dialogue Isn't Written Yet">
+<Node Text="Aha welcome, aren't you lucky to meet me!">
+    <Node OptionToEnter="Who are you?" Text="Why I am the amazing bozo!" OpinionModifier="0.1">
+        <Node OptionToEnter="Of course you are! I can" Text="DON'T MAKE FUN OF ME" OpinionModifier="-1"/>
+        <Node OptionToEnter="Why would you choose to call yourself a bozo?" Text="I DIDN'T MY PARENTS PICKED IT FOR ME!" OpinionModifier="-0.1">
+            <Node OptionToEnter="Why did your parents call you bozo, that seems rude?" Text="That was the name they picked for me, and if you're going to be rude you can leave!" OpinionModifier="-1"/>
+            <Node OptionToEnter="Nice to meet you bozo, can you teach me a joke?" Text="IT'S THE AMAZING BOZO NOT JUST BOZO! And I'm not going to give you my best joke!" OpinionModifier="0.1">
+                <Node OptionToEnter="What do I need to do to earn a joke from you?" Text="It's not that simple! It's MY best joke, why would I give it to you, it's my best joke!" OpinionModifier="0.1">
+                    <Node OptionToEnter="What if I tell you a joke I know?" Text="None of your jokes are good enough for me to care!" OpinionModifier="-1"/>
+                    <Node OptionToEnter="It can't be that great if it's a joke you made" Text="ACTUALLY IT IS, IT MIGHT BE THE BEST JOKE ANYONE KNOWS!" OpinionModifier="0.1">
+                        <Node OptionToEnter="If it's that good you should tell it to me so I know how good it is, otherwise I won't believe you" Text="SURE, What kind of doctor tells people that laughter is the best medicine? A CLOWN DOCTOR!">
+                            <Node OptionToEnter="Wow that wasn't that great at all... but thanks!" Text="NO I DIDN'T MEAN TO THAT'S MY JOKE YOU CAN'T HAVE IT!"  OpinionModifier="1"/>
+                            <Node OptionToEnter="You're pretty easy to trick, I guess that's why you're a bozo?" Text="NO I DIDN'T MEAN TO THAT'S MY JOKE YOU CAN'T HAVE IT!"  OpinionModifier="1"/>
+                            <Node OptionToEnter="I knew I could get you to tell me, I'll be going now!" Text="NO I DIDN'T MEAN TO THAT'S MY JOKE YOU CAN'T HAVE IT!"  OpinionModifier="1"/>
+                        </Node>
+                        <Node OptionToEnter="You sure you don't want to hear one of my jokes first?" Text="There's no way they'd be amazing enough for me, so I don't care to hear them!" OpinionModifier="-1"/>
+                        <Node OptionToEnter="What do you know about the other clowns, do any of them have good jokes?" Text="To even bring up the other clowns is an insult, none are as amazing as the Amazing Bozo" OpinionModifier="-1"/>
+                    </Node>
+                    <Node OptionToEnter="Are you sure I can't earn your joke from you in some way?" Text="You definitely can't!" OpinionModifier="-1"/>
+                </Node>
+                <Node OptionToEnter="I've got a great joke for you, and when you hear it you'll give me that joke as a trade!" Text="No I wont, there's no way you have a joke good enough for THE AMAZING BOZO" OpinionModifier="-1"/>
+                <Node OptionToEnter="Whatever you say Bozo, but I'll get a joke from you somehow!" Text="HAHA Now there's a good joke! But not good enough for me" OpinionModifier="-1"/>
+            </Node>
+            <Node OptionToEnter="I see, were your parents also called bozo or did they have different names?" Text="My mom was called Beezo and my dad was called boozeo" OpinionModifier="0.1">
+                <Node OptionToEnter="What was beezo like?" Text="I don't want to talk about my parents!" OpinionModifier="-1"/>
+                <Node OptionToEnter="What was boozeo like?" Text="I don't want to talk about my parents!" OpinionModifier="-1"/>
+                <Node OptionToEnter="And they chose to name you Bozo, were they also clowns?" Text="I don't want to talk about my parents!" OpinionModifier="-1"/>
+            </Node>
+        </Node>
+        <Node OptionToEnter="WOW! The amazing Bozo, can't believe I get to meet you!" Text="DON'T MAKE FUN OF ME" OpinionModifier="-1"/>
+    </Node>
+    <Node OptionToEnter="Oh yes, I'm very lucky to get to meet.... whoever you are?" Text="I'm the amazing bozo! AND YES YOU ARE LUCKY TO MEET ME!" OpinionModifier="-1"/>
+    <Node OptionToEnter="Of course I do, you're the great uhhhh" Text="Don't even try and lie to me, I can see right through you!" OpinionModifier="-1"/>
 </Node>
