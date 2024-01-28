@@ -4,4 +4,6 @@ public enum Clowns
     JohnClown,
     QuestionClown,
     SadClown,
+    SelfconsciousClown,
+    KillerClown,
 }
